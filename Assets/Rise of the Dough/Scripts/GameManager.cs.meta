@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: c9d6afeb056b6904eb36bbc1221754a7
+labels:
+- 2d
+- animated
+- animation
+- sprite
+- smooth
+- bone
+- skeletal
+- skinned
+- mesh
+- animate
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

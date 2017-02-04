@@ -1,0 +1,24 @@
+﻿Flag = francia
+Language = Français
+English = English
+Español = Español
+Français = Français
+Deutsch = Deutsch
+Italiano = Italiano
+What's your name? = Quel est votre nom?
+HISTORY\nMODE = MODE\nHISTOIRE
+STORE = MAGASIN
+QUICK\nPLAY = JEU\nRAPIDE
+Next = Suivant
+Activate\nTutorial = Activer\nTutoriel
+LOADING... = CHARGEMENT...
+Change user = Cambiar usuario
+Not Connected = No Conectado
+Invite Friends = Invitar Amigos
+Visit = Visitar
+- Visit your facebook friends! - = - Visita a tus amigos de facebook -
+Select Your Character = Elige a tu Personaje
+
+Hello, my name is [99FF66]Ron[-]. I'm the head barber in your barbershop. = Bonjour, mon nom est [99FF66]Ron[-]. Je suis le barbier de la tête dans votre salon de coiffure.
+Allow me to give you a tour in the [99FF66]MonsterCut[-] universe.
+First of all, to continue, [99FF66]press the QUICK PLAY button.[-]

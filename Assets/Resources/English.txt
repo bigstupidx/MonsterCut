@@ -1,0 +1,226 @@
+﻿Flag = usa
+Language = English
+English = English
+Español = Español
+Français = Français
+Deutsch = Deutsch
+Italiano = Italiano
+What's your name?
+HISTORY\nMODE
+STORE
+QUICK\nPLAY
+Next
+Activate\nTutorial
+LOADING...
+Change user
+Not Connected
+Invite Friends
+Visit
+- Visit your facebook friends! -
+Select Your Character
+I'm new guy in the neighbourhood.
+Strength
+Speed
+Deathly blow from top to bottom
+Blizzard that will slow down your troubles. 
+LOCKED
+I have great experience and the passion of France
+A cut that affect all the top hair in your client for limited time.
+Automatic cuts with increased speed.
+I am the head of the barbershop, let's get it done!
+Increase the power of each cut for limited time.
+Make the hair totally still for limited time.
+Hire!
+GO!
+TIME LIMIT
+CHALLENGE
+Reward
+FIGHT!
+Passed!
+My Barbershop
+PAUSED
+HINTS
+Everytime you level up, your barber gets faster and stronger
+If you want a new barber, you can buy one at the Store
+The special abilities for every barber are upgradeable. The max level is 9.
+The harder the client, more gold is likely to appear
+GAME FINISHED!
+TIPS
+To Next Level
+UPGRADE
+MISSIONS
+Share
+Reward
+GREAT WORK!
+Level
+Time's Up!
+Success
+SCORE
+You Win!
+Ready?
+TIME IS UP!
+You did it!
+Not bad
+Good!
+Well Done!
+Great performance!
+I'm getting stronger scissors every second. I've got = I've got
+points. Can you beat me?
+I had defeated a barbershop with
+Challenge Passed!
+EXTRA LIFE!
+SCORE
+Challenge Fail
+YES
+NO
+ARE YOU SURE?
+You'll keep your points, but lose an opportunity
+Challenge Success!
+Unlocked!
+The challenge has failed...
+New life at
+to change clients
+Plastic Chairs
+White Couch
+Ergonomic Chairs
+Fluorescent Light
+Hanging Lamps
+Chinese Paper Lamps
+Little Table
+Glass Table
+Fancy Tables
+Radioactive Wall
+Cold Blood Wall
+Pink Stripes Wall
+Skulls Wallpaper
+Zombie Blood Wall
+Starlight Wall
+Half Window Door
+Big Window Door
+Cristal Door
+Top Windows
+Standard Windows
+Hollywood Windows
+SHOP
+Store
+Exit
+Processing... Please wait
+Barbers
+Upgrades
+Objets
+More\nGold
+Customize\nBarbershop
+Gold Coin Pack #1
+Gold Coin Pack #2
+Gold Coin Pack #3
+Gold Coin Pack #4
+Gold Coin Pack #5
+Add a life to your next play
+Double the gold earned in your next play
+Triple the gold earned in your next play
+Your cut strength increases in 50% in your next play
+Your cut speed increases in 50% in your next play
+Your cut speed and strength increases in 50% in your next play
+Your habilities cooldown decreases in 25% in your next play
+Locked
+Unlock him!
+Unlock her!
+A vertical slice
+Slows down a client
+A horizontal slice
+Automatic speed cuts
+Increase the power cuts
+Make hair totally still
+To next level!
+Level 1: Increase in 1%
+Level 2: Increase in 2%
+Level 3: Increase in 4%
+Level 4: Increase in 6%
+Level 5: Increase in 10%
+Increase the chance to get golden coins
+Level 1: Increase in 4%
+Level 2: Increase in 8%
+Level 3: Increase in 12%
+Level 4: Increase in 16%
+Level 5: Increase in 20%
+Increase the speed of your scissors
+Level 1: Increase in 5%
+Level 2: Increase in 10%
+Level 3: Increase in 15%
+Level 4: Increase in 20%
+Level 5: Increase in 25%
+Increase the strength of your scissors
+Level 1: Increase time in 12%
+Level 2: Increase time in 24%
+Level 3: Increase time in 36%
+Level 4: Increase time in 48%
+Level 5: Increase time in 60%
+Increase the time to make a new client appear.
+Level 1: Decrease  time in 7%
+Level 2: Decrease  time in 14%
+Level 3: Decrease  time in 21%
+Level 4: Decrease  time in 28%
+Level 5: Decrease  time in 35%
+Decrease the cooldown time for the hability 1
+Open Panel
+Chess Floor
+Extravaganza Floor
+Light Chess Floor
+Golden Floor
+Fancy Floor
+Light Bats Floor
+Active
+Save 25%
+Save 50%
+Save 100%
+Save 150%
+I'm playing MonsterCut
+We're the new barbershop in MonsterCity and everybody wants a haircut. Luckily, we have a team of barbers who specialize in cutting monster hair!
+- Visit your friends -
+(no friends)
+Not Connected
+Select The City
+Coming Soon
+Select City
+Change
+Barber
+Map
+Go to
+
+Hello, my name is [99FF66]Ron[-]. I'm the head barber in your barbershop.
+Allow me to give you a tour in the [99FF66]MonsterCut[-] universe.
+First of all, to continue, [99FF66]press the QUICK PLAY button.[-]
+Here's the barber selection screen. You can [99FF66]swipe[-] to check the other barbers.
+Each barber has strength, speed and [99FF66]unique powers[-]. But at first, only one is unlocked.
+Go back to the first one and [99FF66]hire Jesse[-] by pressing the HIRE! button.
+This is part of the [99FF66]History mode[-]. You can [99FF66]challenge[-] other barbershops in this city to unlock prizes.
+Tap the [99FF66]red icon[-].
+To win this challenge, you have to get 1000 points in one hour. You have 5 chances in this one.
+Tap the [99FF66]GO![-] button to accept the challenge.
+The challenge is [99FF66]on![-] Now you can see the time and points left to complete it.
+Now press the [99FF66]Fight![-] button to start the game and beat the challenge!
+Cut [99FF66]all the hair[-] in the monsters before they get fully grown and attack you.
+[99FF66]Tap the screen[-] to cut. And [99FF66]tilt[-] your device to make Jesse circle Medusa's head.
+At the bottom you can activate your [99FF66]barber's powers[-]. Gain levels and upgrade your barber.
+Try to get as far as you can [99FF66]Now[-].
+Awesome work! you had founded a hidden [99FF66]talent[-] sleeping inside of you.
+Up here you can check the [99FF66]score[-] and how much gold did you earn in [99FF66]this[-] game.
+Here you can check your [99FF66]barber's status[-]. Upgrade your level or your powers to make them more [99FF66]effective[-].
+The left one do a [99FF66]vertical cut[-] and the right one create a blizzard that [99FF66]slows the hair growing[-] for a while
+This is the [99FF66]missions[-] panel. Complete the missions and gain [99FF66]extra gold![-]
+Now, press the [99FF66]continue[-] arrow to continue.
+In here you can [99FF66]buy[-] things for your barbershop using the [99FF66]gold[-] that you earn in the game.
+[99FF66]Tilt[-] your device to turn the camera and [99FF66]swipe[-] to move around.
+Tap the button at the top to check the [99FF66]Store menu[-].
+You can buy new windows, wallpapers, chairs, tables or floors. I have a [99FF66]gift[-] for you.
+In the windows area, I had unlocked the 'Top Windows' [99FF66]Activate it[-] by tapping the [99FF66]Active[-] checkbox.
+Great job! remember that you can get more coins in the [99FF66]Store[-]. Have fun!
+In here you can [99FF66]buy[-] things to improve the game, like new barbers, upgrades, objects or even [99FF66] More Gold[-].
+The [99FF66]Barbers panel[-] allow you to buy new barbers or upgrade your existing ones and their [99FF66]powers[-].
+Tap the [99FF66]Upgrades tab[-].
+In this panel you can [99FF66]upgrade[-] the game to improve your performance.
+Tap the [99FF66]Objects tab[-] now.
+In the objects panel you can buy [99FF66]consumible objects[-] that will help you in the game.
+Now tap the [99FF66]More Gold tab[-].
+In here you can purchase [99FF66]gold[-] with real money. Make your game easier and [99FF66]have more fun![-]
+Remember that you can [99FF66]earn gold[-] in a lot of ways during the game.

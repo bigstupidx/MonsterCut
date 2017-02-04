@@ -1,0 +1,24 @@
+﻿Flag = alemania
+Language = Deutsch
+English = English
+Español = Español
+Français = Français
+Deutsch = Deutsch
+Italiano = Italiano
+What's your name? = Wie ist Ihr Name?
+HISTORY\nMODE = STORY\nMODUS
+STORE = LADEN
+QUICK\nPLAY = SCHNELL\nSPIEL
+Next = Nächste
+Activate\nTutorial = Aktivieren\nLernprogramm
+LOADING... = VERLADUNG...
+Change user = Cambiar usuario
+Not Connected = No Conectado
+Invite Friends = Invitar Amigos
+Visit = Visitar
+- Visit your facebook friends! - = - Visita a tus amigos de facebook -
+Select Your Character = Elige a tu Personaje
+
+Hello, my name is [99FF66]Ron[-]. I'm the head barber in your barbershop. = Hallo, mein Name ist [99FF66]Ron[-]. Ich bin der Kopf Friseur in Ihrer frisiersalon.
+Allow me to give you a tour in the [99FF66]MonsterCut[-] universe.
+First of all, to continue, [99FF66]press the QUICK PLAY button.[-]
