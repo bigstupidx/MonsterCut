@@ -4,7 +4,7 @@ using System.Collections;
 public class setPeluqueria : MonoBehaviour {
 	public objetoPeluqueria[] objetos;
 	public objetoBasePeluqueria[] objetosBase;
-	public baseDatos miBaseDatos;
+	//public baseDatos miBaseDatos;
 	string[] valoresPrefsAmigo;
 	
 	public GameObject tutorial;
@@ -59,7 +59,7 @@ public class setPeluqueria : MonoBehaviour {
 				//miBaseDatos.registrarPlayerPref(obtenerCampoPlayerPref(id), items[id].playerPref);
 	}
 	
-	IEnumerator registrarPlayerPrefBase(objetoBasePeluqueria obj){
+	/*IEnumerator registrarPlayerPrefBase(objetoBasePeluqueria obj){
 		if(miBaseDatos != null)
 			yield return miBaseDatos.StartCoroutine("activarBase", obj);
 	}
@@ -114,7 +114,7 @@ public class setPeluqueria : MonoBehaviour {
 	//void obtenerParametroAmigo(string nombre){
 	//	if(miBaseDatos != null) StartCoroutine(miBaseDatos.obtenerParametroAmigo", nombre);
 	//}
-	
+	*/
 	/*string obtenerCampoPlayerPref(int id){
 		string ret = "";
 		switch(id){

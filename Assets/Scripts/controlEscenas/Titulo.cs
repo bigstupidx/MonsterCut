@@ -44,7 +44,7 @@ public class Titulo : MonoBehaviour {
 	}*/
 
 	public void rate(){
-		#if UNITY_IPHONE
+		/*#if UNITY_IPHONE
 		//FlurryAnalytics.logEvent("rate", false );
 		Application.OpenURL ("https://itunes.apple.com/us/app/monstercut/id952900651?l=es&ls=1&mt=8");
 		#endif		
@@ -52,7 +52,7 @@ public class Titulo : MonoBehaviour {
 		FlurryAndroid.logEvent("rate");
 		Application.OpenURL ("https://play.google.com/store/apps/details?id=com.nemorisgames.monstercut");
 		#endif
-
+        */
 	}
 
 	public void botonQuick(){

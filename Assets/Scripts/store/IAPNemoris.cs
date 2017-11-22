@@ -5,7 +5,7 @@ using Prime31;
 
 public class IAPNemoris : MonoBehaviour
 { 
-#if UNITY_IPHONE || UNITY_ANDROID
+/*#if UNITY_IPHONE || UNITY_ANDROID
 	public bool isTest = true;
 	public List<IAPProduct> _productos;
 	public bool compraTerminada=true;
@@ -199,7 +199,7 @@ public class IAPNemoris : MonoBehaviour
 	}
 
 #endif
-
+*/
 }
 
 [System.Serializable]

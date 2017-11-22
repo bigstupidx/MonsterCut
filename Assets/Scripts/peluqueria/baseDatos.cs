@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class baseDatos : MonoBehaviour {
-	public string pk_usuario = "";
+	/*public string pk_usuario = "";
 	string campoAux = "";
 	string playerPrefAux = "";
 	bool retornoAux = false;
@@ -96,5 +96,5 @@ public class baseDatos : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-	}
+	}*/
 }
