@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class store : MonoBehaviour {
-	public IAPNemoris IAPNemorisStore;
+	//public IAPNemoris IAPNemorisStore;
 	bool mostrarItemsMonedas = false;
 	public UILabel monedasLabel;
 	int monedas = 0;
@@ -76,7 +76,7 @@ public class store : MonoBehaviour {
 	}
 	
 	void productosCargados(bool cargados){
-		print ("productos cargados: "+cargados);
+		/*print ("productos cargados: "+cargados);
 		mostrarItemsMonedas = cargados;
 		for(int i = 0; i < itemsMonedaGameObjects.Length; i++){ 
 			#if UNITY_IPHONE || UNITY_ANDROID 
@@ -84,7 +84,7 @@ public class store : MonoBehaviour {
 			itemsMoneda[i].precioLabel.text = "" + IAPNemorisStore.productos[i].precio;
 			#endif
 			itemsMonedaGameObjects[i].SetActive(cargados);
-		}
+		}*/
 	}
 	
 	void comprarMonedas0(){ comprarMonedas(0); }
@@ -145,7 +145,7 @@ public class store : MonoBehaviour {
 	
 	void comprarMonedas(int id){
 		//if(IAPNemorisStore.esPosibleComprar() && IAPNemorisStore.compraTerminada){
-		if(IAPNemorisStore.compraTerminada){
+		/*if(IAPNemorisStore.compraTerminada){
 			#if UNITY_IPHONE
 			////FlurryAnalytics.logEvent( "monedasComprar" + id, false );
 			#endif 
@@ -154,7 +154,7 @@ public class store : MonoBehaviour {
 			# endif 
 			idMonedaActual = id;
 			IAPNemorisStore.comprar(id);	
-		}
+		}*/
 	}
 	
 	void comprarObjeto(int id){
