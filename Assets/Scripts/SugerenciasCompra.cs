@@ -108,7 +108,7 @@ public class SugerenciasCompra : MonoBehaviour {
 		//FlurryAnalytics.logEvent("sugerenciaTomada"+indiceActual, false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("sugerenciaTomada"+indiceActual);
+		//FlurryAndroid.logEvent("sugerenciaTomada"+indiceActual);
 		#endif
 		PlayerPrefs.SetInt ("sugerenciaUtilizada" + indiceActual, 2);
 		if (objetos [indiceActual].callbackCentral != "") {
@@ -124,7 +124,7 @@ public class SugerenciasCompra : MonoBehaviour {
 		//FlurryAnalytics.logEvent("sugerenciaCancelada"+indiceActual, false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("sugerenciaCancelada"+indiceActual);
+		//FlurryAndroid.logEvent("sugerenciaCancelada"+indiceActual);
 		#endif
 		cerrarPanel ();
 	}
@@ -136,7 +136,7 @@ public class SugerenciasCompra : MonoBehaviour {
 		//FlurryAnalytics.logEvent("sugerenciaIrStore"+indiceActual, false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("sugerenciaIrStore"+indiceActual);
+		//FlurryAndroid.logEvent("sugerenciaIrStore"+indiceActual);
 		#endif
 		Application.LoadLevel ("Store");
 	}

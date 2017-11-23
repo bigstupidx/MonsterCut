@@ -107,7 +107,7 @@ public class central : MonoBehaviour {
 	public AudioClip sonidoReady;
 	public AudioClip sonidoGo;
 
-	public GameObject botonFacebookPublicar;
+	//public GameObject botonFacebookPublicar;
 	public GameObject[] botonesReintentar;
 
 	public AudioClip musicaInicio;
@@ -377,7 +377,7 @@ public class central : MonoBehaviour {
 	void estacionSiguiente(){}
 	void estacionAnterior(){}
 	
-	void cortarPelo(int pos){
+	public void cortarPelo(int pos){
 		monstruosNivel[estacionActual].cortarPelo(pos, peluqueroPoderCorte);
 		//print ("cortes " + nCortes);
 		nCortes++;
@@ -755,7 +755,7 @@ public class central : MonoBehaviour {
 		//FlurryAnalytics.logEvent("salirDesdePausa", false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("salirDesdePausa");
+		//FlurryAndroid.logEvent("salirDesdePausa");
 		#endif
 		Application.LoadLevel(salirAMapa?"Mapa":"Store");
 	}
@@ -839,7 +839,7 @@ public class central : MonoBehaviour {
 				string mensajeFinal;
 				if(PlayerPrefs.GetInt("enChallenge", 0) == 2 || PlayerPrefs.GetInt("tutorial7", 0) == 0){
 					mensajeFinal = Localization.Get((PlayerPrefs.GetInt("tutorial7", 0) == 0)?"Tutorial Passed!":"Challenge Passed!");
-					botonFacebookPublicar.SendMessage("setMensaje", Localization.Get("I had defeated a barbershop with") + " " + PlayerPrefs.GetInt("challengeStartScore") + " " + Localization.Get("points. Can you beat me?"));
+					//botonFacebookPublicar.SendMessage("setMensaje", Localization.Get("I had defeated a barbershop with") + " " + PlayerPrefs.GetInt("challengeStartScore") + " " + Localization.Get("points. Can you beat me?"));
 				}
 				else{
 					mensajeFinal = "HAIR GOD!";
@@ -850,7 +850,7 @@ public class central : MonoBehaviour {
 						    if(puntajeNivel < 1500) mensajeFinal = Localization.Get("Well Done!");
 							else 
 						         if(puntajeNivel < 3000) mensajeFinal = Localization.Get("Great performance!");
-					botonFacebookPublicar.SendMessage("setMensaje", Localization.Get("I'm getting stronger scissors every second. I've got") + " " + puntajeNivel + " " + Localization.Get("points. Can you beat me?") );
+					//botonFacebookPublicar.SendMessage("setMensaje", Localization.Get("I'm getting stronger scissors every second. I've got") + " " + puntajeNivel + " " + Localization.Get("points. Can you beat me?") );
 				}
 				mostrarMensaje(mensajeFinal);
 				yield return new WaitForSeconds(2);
@@ -1020,7 +1020,7 @@ public class central : MonoBehaviour {
 		//FlurryAnalytics.logEvent("poderCortarPelo", false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("poderCortarPelo");
+		//FlurryAndroid.logEvent("poderCortarPelo");
 		#endif
 		poder1usos++;
 		monstruosNivel[estacionActual].poderCortarPeloCompleto(nivel, posActual.pos);
@@ -1031,7 +1031,7 @@ public class central : MonoBehaviour {
 		//FlurryAnalytics.logEvent("poderCongelar", false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("poderCongelar");
+		//FlurryAndroid.logEvent("poderCongelar");
 		#endif
 		poder2usos++;
 		StartCoroutine(monstruosNivel[estacionActual].poderCongelar(5 + 3 * nivel));
@@ -1042,7 +1042,7 @@ public class central : MonoBehaviour {
 		//FlurryAnalytics.logEvent("poderCortarPuntas", false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("poderCortarPuntas");
+		//FlurryAndroid.logEvent("poderCortarPuntas");
 		#endif
 		poder1usos++;
 		monstruosNivel[estacionActual].poderCortarPuntas(nivel, posActual.pos);
@@ -1053,7 +1053,7 @@ public class central : MonoBehaviour {
 		//FlurryAnalytics.logEvent("poderAutoCorte", false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("poderAutoCorte");
+		//FlurryAndroid.logEvent("poderAutoCorte");
 		#endif
 		poder2usos++;
 		StartCoroutine(monstruosNivel[estacionActual].poderAutoCorte(5 + 3 * nivel));
@@ -1064,7 +1064,7 @@ public class central : MonoBehaviour {
 		//FlurryAnalytics.logEvent("poderDetenerTiempo", false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("poderDetenerTiempo");
+		//FlurryAndroid.logEvent("poderDetenerTiempo");
 		#endif
 		poder1usos++;
 		StartCoroutine(monstruosNivel[estacionActual].poderDetenerTiempo(3 + nivel));
@@ -1075,7 +1075,7 @@ public class central : MonoBehaviour {
 		//FlurryAnalytics.logEvent("poderFuerza", false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("poderFuerza");
+		//FlurryAndroid.logEvent("poderFuerza");
 		#endif
 		poder2usos++;
 		StartCoroutine(monstruosNivel[estacionActual].poderFuerza(3 + nivel));

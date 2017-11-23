@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PushNotificationsNemoris : MonoBehaviour {
-	public int pk_juego = 1;
+	/*public int pk_juego = 1;
 	public string ProjectID;
 	public string APIkey;
 	string _registrationId;
@@ -29,16 +29,6 @@ public class PushNotificationsNemoris : MonoBehaviour {
 #if UNITY_IOS
 	void Start() {
 		esIOS = 1;
-		/*if (NotificationServices.remoteNotificationCount > 0 || NotificationServices.localNotificationCount > 0)
-		{
-			RemoteNotification l = new RemoteNotification ();
-			l.applicationIconBadgeNumber = -1;
-			NotificationServices.p (l);
-			
-			NotificationServices.CancelAllLocalNotifications ();
-			NotificationServices.ClearLocalNotifications (); 
-			NotificationServices.ClearRemoteNotifications();
-		} */
 		DontDestroyOnLoad (gameObject);
 		UnityEngine.iOS.NotificationServices.RegisterForNotifications (UnityEngine.iOS.NotificationType.Alert |  UnityEngine.iOS.NotificationType.Badge |  UnityEngine.iOS.NotificationType.Sound);
 	}
@@ -91,5 +81,5 @@ public class PushNotificationsNemoris : MonoBehaviour {
 
 	void OnGUI(){
 		//GUI.Box (new Rect (0f, 0f, 100f, 100f), _registrationId);
-	}
+	}*/
 }

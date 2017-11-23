@@ -232,7 +232,7 @@ public class itemPeluqueria : MonoBehaviour {
 			//FlurryAnalytics.logEvent("challenge" + id, true );
 			#endif		
 			#if UNITY_ANDROID
-			FlurryAndroid.logEvent("challenge" + id, true);
+			//FlurryAndroid.logEvent("challenge" + id, true);
 			#endif
 			tiempochallenge = System.DateTime.Parse(PlayerPrefs.GetString("challengeStopTime"));
 			actualizarIndicadores();
@@ -249,7 +249,7 @@ public class itemPeluqueria : MonoBehaviour {
 			//FlurryAnalytics.logEvent("challengeGo" + id, false );
 			#endif		
 			#if UNITY_ANDROID
-			FlurryAndroid.logEvent("challengeGo" + id);
+			//FlurryAndroid.logEvent("challengeGo" + id);
 			#endif
 			PlayerPrefs.SetString("escenaCargar", "Nivel");
 			Application.LoadLevel("Loading");	
@@ -261,7 +261,7 @@ public class itemPeluqueria : MonoBehaviour {
 		//FlurryAnalytics.logEvent("challengeCancel" + id, false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("challengeCancel" + id);
+		//FlurryAndroid.logEvent("challengeCancel" + id);
 		#endif
 		challengeFail();	
 	}
@@ -272,13 +272,13 @@ public class itemPeluqueria : MonoBehaviour {
 		//FlurryAnalytics.endTimedEvent("challenge" + id);
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.endTimedEvent("challenge" + id);
+		//FlurryAndroid.endTimedEvent("challenge" + id);
 		#endif
 		#if UNITY_IPHONE
 		//FlurryAnalytics.logEvent("challengeFail" + id, false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("challengeFail" + id);
+		//FlurryAndroid.logEvent("challengeFail" + id);
 		#endif
 		PlayerPrefs.SetInt("enChallenge", 0);
 		PlayerPrefs.SetInt("challengeId", -1);
@@ -296,13 +296,13 @@ public class itemPeluqueria : MonoBehaviour {
 		//FlurryAnalytics.endTimedEvent("challenge" + id);
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.endTimedEvent("challenge" + id);
+		//FlurryAndroid.endTimedEvent("challenge" + id);
 		#endif
 		#if UNITY_IPHONE
 		//FlurryAnalytics.logEvent("challengeSuccess" + id, false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("challengeSuccess" + id);
+		//FlurryAndroid.logEvent("challengeSuccess" + id);
 		#endif
 		PlayerPrefs.SetInt("monedas", PlayerPrefs.GetInt("monedas") + prizeGold);
 		int expf = PlayerPrefs.GetInt("peluquero"+PlayerPrefs.GetInt("peluqueroSeleccionado", 0)+"exp") + prizeExp;

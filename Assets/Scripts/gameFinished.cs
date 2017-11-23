@@ -111,7 +111,7 @@ public class gameFinished : MonoBehaviour {
 			//FlurryAnalytics.logEvent("upgradePeluquero" + PlayerPrefs.GetInt("peluqueroSeleccionado", 0) + "n" + level, false );
 			#endif		
 			#if UNITY_ANDROID
-			FlurryAndroid.logEvent("upgradePeluquero" + PlayerPrefs.GetInt("peluqueroSeleccionado", 0) + "n" + level);
+			//FlurryAndroid.logEvent("upgradePeluquero" + PlayerPrefs.GetInt("peluqueroSeleccionado", 0) + "n" + level);
 			#endif
 			setBotonComprarNivel();
 		}
@@ -157,7 +157,7 @@ public class gameFinished : MonoBehaviour {
 			//FlurryAnalytics.logEvent( "upgradePeluquero"+PlayerPrefs.GetInt("peluqueroSeleccionado", 0)+"poder1n" + poder1Nivel, false );
 			#endif		
 			#if UNITY_ANDROID
-			FlurryAndroid.logEvent("upgradePeluquero"+PlayerPrefs.GetInt("peluqueroSeleccionado", 0)+"poder1n" + poder1Nivel);
+			//FlurryAndroid.logEvent("upgradePeluquero"+PlayerPrefs.GetInt("peluqueroSeleccionado", 0)+"poder1n" + poder1Nivel);
 			#endif
 		}
 	}
@@ -173,7 +173,7 @@ public class gameFinished : MonoBehaviour {
 			//FlurryAnalytics.logEvent( "upgradePeluquero"+PlayerPrefs.GetInt("peluqueroSeleccionado", 0) + poder2Nivel, false );
 			#endif		
 			#if UNITY_ANDROID
-			FlurryAndroid.logEvent("upgradePeluquero"+PlayerPrefs.GetInt("peluqueroSeleccionado", 0) + poder2Nivel);
+			//FlurryAndroid.logEvent("upgradePeluquero"+PlayerPrefs.GetInt("peluqueroSeleccionado", 0) + poder2Nivel);
 			#endif
 		}
 	}

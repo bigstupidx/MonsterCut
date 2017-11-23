@@ -60,7 +60,7 @@ public class Titulo : MonoBehaviour {
 		//FlurryAnalytics.logEvent("quickPlay", false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("quickPlay");
+		//FlurryAndroid.logEvent("quickPlay");
 		#endif
 		PlayerPrefs.SetInt("training", 1);
 		PlayerPrefs.SetString("escenaCargar", "Nivel");
@@ -111,7 +111,7 @@ public class Titulo : MonoBehaviour {
 		//FlurryAnalytics.logEvent("activarTutorial", false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("activarTutorial");
+		//FlurryAndroid.logEvent("activarTutorial");
 		#endif
 		PlayerPrefs.SetInt ("tutorial1", 0);
 		PlayerPrefs.SetInt ("tutorial2", 0);

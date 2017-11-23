@@ -148,7 +148,7 @@ public class storePeluqueria : MonoBehaviour {
 			//FlurryAnalytics.logEvent("comprado_"+items[id].playerPref, false );
 			#endif		
 			#if UNITY_ANDROID
-			FlurryAndroid.logEvent("comprado_"+items[id].playerPref);
+			//FlurryAndroid.logEvent("comprado_"+items[id].playerPref);
 			#endif
 			activar(id, true);
 			actualizarItems();

@@ -53,7 +53,7 @@ public class Seleccion : MonoBehaviour {
 		//FlurryAnalytics.logEvent( "peluqueroSeleccionado" + id, false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("peluqueroSeleccionado" + id);
+		//FlurryAndroid.logEvent("peluqueroSeleccionado" + id);
 		#endif
 		retratoSeleccionado = id;
 		peluqueroSeleccionado();

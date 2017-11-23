@@ -21,15 +21,15 @@ public class setPeluqueria : MonoBehaviour {
 	}
 
 	void crearPeluqueriaPropia(bool actualizarBD){
-		if(PlayerPrefs.GetString("idFacebookAmigo", "-1") != "-1"){ 
+		/*if(PlayerPrefs.GetString("idFacebookAmigo", "-1") != "-1"){ 
 			if(tutorial != null) Destroy(tutorial);
 			foreach(GameObject g in objetosEsconder) g.SetActive(false);
 
 			if(nombreDueno != null) nombreDueno.text = PlayerPrefs.GetString("nombreAmigo", "Friend") + "'s\nBarberShop";
-			StartCoroutine("crearPeluqueriaAmigo");
+			StartCoroutine(crearPeluqueriaAmigo());
 			return;
 		}
-		else foreach(GameObject g in objetosMostrar) g.SetActive(false);
+		else */foreach(GameObject g in objetosMostrar) g.SetActive(false);
 		for(int i = 0; i < objetosBase.Length; i++){
 			bool crear = true;
 			foreach(string pp in objetosBase[i].playerPrefs){
@@ -38,20 +38,20 @@ public class setPeluqueria : MonoBehaviour {
 			}
 			if(crear){
 				objetosBase[i].crear(transform);
-				if(objetosBase[i].playerPrefs.Length > 0 && objetosBase[i].nombreBaseDatos != "" && actualizarBD) 
-					StartCoroutine("registrarPlayerPrefBase", objetosBase[i]);
+				//if(objetosBase[i].playerPrefs.Length > 0 && objetosBase[i].nombreBaseDatos != "" && actualizarBD) 
+				//	StartCoroutine(registrarPlayerPrefBase(), objetosBase[i]);
 			}
 			else objetosBase[i].limpiar();
 		}
 		for(int i = 0; i < objetos.Length; i++){
 			if(PlayerPrefs.GetInt(objetos[i].playerPref, 0) == 2){
 				objetos[i].crear(transform);	
-				if(objetos[i].playerPref != "" && objetos[i].nombreBaseDatos != "" && actualizarBD) 
-					StartCoroutine("registrarPlayerPref", objetos[i]);
+				//if(objetos[i].playerPref != "" && objetos[i].nombreBaseDatos != "" && actualizarBD) 
+				//	StartCoroutine(registrarPlayerPref(), objetos[i]);
 			}
 			else objetos[i].limpiar();
 		}
-
+        
 		if (loading != null) {
 			loading.SetActive (false);
 		}

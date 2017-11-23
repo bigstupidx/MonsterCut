@@ -49,7 +49,7 @@ public class mision : MonoBehaviour {
 		//FlurryAnalytics.logEvent("misionTerminada" + PlayerPrefs.GetInt("misionSlot"+slot), false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("misionTerminada" + PlayerPrefs.GetInt("misionSlot"+slot));
+		//FlurryAndroid.logEvent("misionTerminada" + PlayerPrefs.GetInt("misionSlot"+slot));
 		#endif
 		yield return new WaitForSeconds(2f);
 		//int idMision = PlayerPrefs.GetInt("misionSlot"+slot);

@@ -1,17 +1,17 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Prime31;
+//using Prime31;
 
-#if UNITY_IPHONE
+/*#if UNITY_IPHONE
 using FB = FacebookBinding;
 #endif
 #if UNITY_ANDROID
 using FB = FacebookAndroid;
 #endif
-
+*/
 public class FacebookNemoris : MonoBehaviour {
-	public UILabel textoDebug;
+	/*public UILabel textoDebug;
 	public bool showDebugText = true;
 	bool logged = false;
 	GameObject socialCallbackReceiver;
@@ -41,7 +41,7 @@ public class FacebookNemoris : MonoBehaviour {
 
 	public UIToggle changeUser;
 
-	FacebookFriendsResult resultFacebookFriends;
+	//FacebookFriendsResult resultFacebookFriends;
 	System.DateTime tiempoPremioLogin;
 	System.DateTime tiempoPremioShare;
 	public GameObject loginPremio;
@@ -57,12 +57,6 @@ public class FacebookNemoris : MonoBehaviour {
 		
 		if(!showDebugText) textoDebug.gameObject.SetActive(false);
 		
-		FB.init();
-		
-		FacebookManager.graphRequestCompletedEvent += result =>
-		{
-			Prime31.Utils.logObject( result );
-		};
 		print (System.DateTime.Now);
 		tiempoPremioLogin = System.DateTime.Parse(PlayerPrefs.GetString("tiempoPremioLogin", "01/01/2015 12:36:18"));
 		print (tiempoPremioLogin);
@@ -103,45 +97,7 @@ public class FacebookNemoris : MonoBehaviour {
 	}
 
 
-	void logueado(string error, FacebookMeResult result)
-	{
-		if (error != null){
-			textoDebug.text = error;
-			if(handler != null) handler.errorLogin(error);
-		}
-		else{
-			//IDictionary me = (IDictionary)result;          
-			#if UNITY_IPHONE
-			//FlurryAnalytics.logEvent("facebookUserLog", false );
-			#endif		
-			#if UNITY_ANDROID
-			FlurryAndroid.logEvent("facebookUserLog");
-			#endif
-			if((tiempoPremioLogin - System.DateTime.Now) <= System.TimeSpan.Zero) 
-				recompensarLogin("3");
-			textoDebug.text = "Hola\n" + result.first_name;
-			nombreTexto.text = "" + result.first_name;
-			nombreTexto.gameObject.GetComponent<UILocalize>().enabled = false;
-			idFacebook = result.id;
-			Debug.Log(result.name + " " + result.id);
-			if(handler != null) handler.logged(result.toDictionary());
-			logged = true;
-			StartCoroutine("usuarioAddBD", result.id);
-
-			//para el caso de que quiera publicar y no se habia loggeado
-			if(mensajePost != "") publicarEnMuro(mensajePost);
-			//carga los amigos
-			if(!amigosActualizados){
-				getFriends();
-				listaAmigos.items.Add(" Loading friends...");
-				listaAmigos.value = " Loading friends...";
-				//StartCoroutine("actualizarAmigosBD");
-			}
-			if(invitando){
-				inviteFriends();
-			}
-		}
-	}
+	
 
 	IEnumerator usuarioAddBD(string id){
 
@@ -194,22 +150,12 @@ public class FacebookNemoris : MonoBehaviour {
 	}
 	
 	void getFriends(){
-		Facebook.instance.getFriends(mostrarAmigos);
+		//Facebook.instance.getFriends(mostrarAmigos);
 	}
 
 	public void publicarFoto(){
 		//no funciona
-		Application.CaptureScreenshot( screenshotFilename );
-		var pathToImage = Application.persistentDataPath + "/" + FacebookComboUI.screenshotFilename;
-		if( !System.IO.File.Exists( pathToImage ) )
-		{
-			Debug.LogError( "there is no screenshot avaialable at path: " + pathToImage );
-			return;
-		}
-		
-		var bytes = System.IO.File.ReadAllBytes( pathToImage );
-		Facebook.instance.postImage( bytes, "Check out my Barbershot at MonsterCut!", fotoPublicada );
-	}
+    }
 
 	void fotoPublicada(string error, object result){
 		if (error != "") {
@@ -218,133 +164,6 @@ public class FacebookNemoris : MonoBehaviour {
 		else print ("publicacion ok");
 	}
 
-	void mostrarAmigos(string error, FacebookFriendsResult result){
-		//IDictionary data = result as IDictionary;
-		//IList friends = data["data"] as IList;
-		amigosActualizados = true;
-		textoDebug.text = "mostrando amigos...";
-		mostrarAmigosRutina(result);
-	}
-
-	void mostrarAmigosRutina(FacebookFriendsResult result){
-		resultFacebookFriends = result;
-		Handheld.StartActivityIndicator ();
-		//amigos = null;
-		//amigos = new amigo[result.data.Count];//Mathf.Clamp(result.data.Count, 0, 300)];
-		Debug.Log("namigos " + result.data.Count);
-		string lista = "";
-		textoDebug.text = "";
-		for (int i = 0; i < result.data.Count; i++) {
-			lista += (string)result.data[i].id + "|";
-			textoDebug.text += (string)result.data[i].id + "| ";
-		}
-		//textoDebug.text = (lista);
-		StartCoroutine(obtenerAmigosActivos(lista.Substring(0, lista.Length - 1)));
-		//StartCoroutine("buscarAmigosActivos");
-		//actualizarListaAmigos();
-		//yield return false;
-	}
-
-	//IEnumerator buscarAmigosActivos(){
-	//	string lista = "";
-	//	foreach (amigo a in amigos) {
-	//		lista += a.idFacebookAmigo + "|";
-	//	}
-	//	yield return StartCoroutine("obtenerAmigosActivos", lista.Substring(0, lista.Length - 1));
-	//	textoDebug.text = (lista.Substring(0, 100));
-
-		//actualizarListaAmigos();
-	//}
-
-	IEnumerator obtenerAmigosActivos(string listaAmigos){
-		WWWForm form = new WWWForm();
-		form.AddField( "idFacebook", idFacebook );
-		form.AddField( "idFacebookAmigos", listaAmigos );
-		textoDebug.text = "testing";
-		WWW download = new WWW( "http://www.nemorisgames.com/medusa/funciones.php?operacion=5", form);
-		yield return download;
-		textoDebug.text = "retorno " + download.text;
-		if(download.error != null) {
-			print( "Error downloading: " + download.error );
-			textoDebug.text = download.error;
-			//mostrarError("Error de conexion");
-			Handheld.StopActivityIndicator ();
-			yield return false;
-		} else {
-			string retorno = download.text;
-			if(retorno == ""){
-				textoDebug.text = "vacio";
-				listaAmigosObjetos.SetActive(false);
-				botonInvitar.SetActive(true);
-				
-				Handheld.StopActivityIndicator ();
-				//error :(
-				//mostrarError("Error de conexion");
-				//a.noActivo = true;
-				//print ("amigo " + a.nombre + " no activo");
-			}
-			else{
-				//exito!
-				//prefAux = retorno;
-				//a.noActivo = false;
-				//print ("amigo " + a.nombre + " activo");
-				//Application.LoadLevel(Application.loadedLevelName);
-				retorno = retorno.Substring(0, retorno.Length - 1);
-				textoDebug.text = "ret: " + (retorno);
-				string[] amigosFacebookID = retorno.Split(new char[]{'|'});
-				amigos = null;
-				amigos = new amigo[amigosFacebookID.Length];
-				int contador = 0;
-
-				for (int i = 0; i < resultFacebookFriends.data.Count; i++) {
-					for(int j = 0; j < Mathf.Clamp(amigosFacebookID.Length, 0, 30); j++){
-						if(amigosFacebookID[j] == (string)resultFacebookFriends.data[i].id){
-							crearAmigo(contador, (string)resultFacebookFriends.data[i].id, (string)resultFacebookFriends.data[i].name);
-							amigos[contador].noActivo = false;
-							textoDebug.text += " " + ((string)resultFacebookFriends.data[i].name);
-							contador++;
-						}
-					}
-					if(contador > 30) break;
-				}
-
-				actualizarListaAmigos();
-				listaAmigosObjetos.SetActive(true);
-				botonInvitar.SetActive(false);
-				textoDebug.text += " lista ok";
-				Handheld.StopActivityIndicator ();
-			}
-		}
-	}
-
-
-	IEnumerator obtenerAmigoActivo(amigo a){
-		WWWForm form = new WWWForm();
-		form.AddField( "idFacebook", idFacebook );
-		form.AddField( "idFacebookAmigo", a.idFacebookAmigo );
-		WWW download = new WWW( "http://www.nemorisgames.com/medusa/funciones.php?operacion=3", form);
-		yield return download;
-		if(download.error != null) {
-			print( "Error downloading: " + download.error );
-			//mostrarError("Error de conexion");
-			yield return false;
-		} else {
-			string retorno = download.text;
-			if(retorno == "0"){
-				//error :(
-				//mostrarError("Error de conexion");
-				a.noActivo = true;
-				print ("amigo " + a.nombre + " no activo");
-			}
-			else{
-				//exito!
-				//prefAux = retorno;
-				a.noActivo = false;
-				print ("amigo " + a.nombre + " activo");
-				//Application.LoadLevel(Application.loadedLevelName);
-			}
-		}
-	}
 
 
 	void crearAmigo(int i, string id, string nombre){
@@ -385,39 +204,11 @@ public class FacebookNemoris : MonoBehaviour {
 				{ "description", mensaje }
 			};
 			//FB.showDialog("stream.publish", parameters);
-			#if UNITY_IPHONE
-			////FlurryAnalytics.logEvent("facebookPublicar", false );
-			#endif		
-			#if UNITY_ANDROID
-			FlurryAndroid.logEvent("facebookPublicar");
-			#endif
 		}
 	}
 	
 	void inviteFriends()
 	{
-		invitando = false;
-		if(!logged){
-			invitando = true;
-			login ();
-		}
-		else{ 
-			Dictionary<string, string> lParam = new Dictionary<string, string>();
-			lParam["message"] = "Download it for free and join me!";
-			lParam["title"] = Localization.Get("I'm playing MonsterCut");
-			#if UNITY_ANDROID
-			FacebookAndroid.showDialog("apprequests", lParam);
-			#endif
-			#if UNITY_IPHONE
-			//FacebookBinding.showDialog("apprequests", lParam);
-			#endif
-			#if UNITY_IPHONE
-			////FlurryAnalytics.logEvent("facebookInvitarAmigo", false );
-			#endif		
-			#if UNITY_ANDROID
-			FlurryAndroid.logEvent("facebookInvitarAmigo");
-			#endif
-		}
 	}
 	
 	void actualizarListaAmigos(){
@@ -452,60 +243,13 @@ public class FacebookNemoris : MonoBehaviour {
 	
 	void visitarAmigo(){
 		//getFriends ();
-		foreach (amigo a in amigos)
-		{
-			if(a.nombre == listaAmigos.selection){
-				Debug.Log( "visitando " + a.idFacebookAmigo + " " + a.nombre);
-				#if UNITY_IPHONE
-				//FlurryAnalytics.logEvent("facebookVisitarAmigo", false );
-				#endif		
-				#if UNITY_ANDROID
-				FlurryAndroid.logEvent("facebookVisitarAmigo");
-				#endif
-				PlayerPrefs.SetString("idFacebookAmigo", a.idFacebookAmigo);
-				PlayerPrefs.SetString("nombreAmigo", a.primerNombre);
-				Application.LoadLevel("Peluqueria");
-			}
-		}
+		
 	}
 
 	void login(){
-
-		#if UNITY_ANDROID
-//		FacebookAndroid.loginWithReadPermissions( new string[] { "email", "user_birthday" } );
-		#endif
-		#if UNITY_IPHONE
-//		FacebookBinding.loginWithReadPermissions( new string[] { "email", "user_birthday" } );
-		#endif
-
-		#if UNITY_ANDROID
-		//if(changeUser.isChecked)
-			FB.setSessionLoginBehavior (FacebookSessionLoginBehavior.SSO_ONLY);
-		//else
-		//	FB.setSessionLoginBehavior (FacebookSessionLoginBehavior.SSO_WITH_FALLBACK);
-		#endif
-		#if UNITY_IPHONE
-		//if(changeUser.isChecked)
-		//	FB.setSessionLoginBehavior (FacebookSessionLoginBehavior.WithNoFallbackToWebView);
-		//else
-			FB.setSessionLoginBehavior (FacebookSessionLoginBehavior.ForcingWebView);
-		#endif
-		FB.loginWithReadPermissions( new string[] { "email", "user_birthday" });
-		if(handler != null) handler.logueando();
-		textoDebug.text = "Logging...";
 	}
 	
 	void logout(){
-		#if UNITY_ANDROID
-		FacebookAndroid.logout();
-		#endif
-		#if UNITY_IPHONE
-		FacebookBinding.logout();
-		#endif
-		logged = false;
-		if(handler != null) handler.logout();
-		textoDebug.text = "Logged out";
-		nombreTexto.text = Localization.Get("Not Connected");
 	}
 
 	void activar(bool b){
@@ -551,66 +295,16 @@ public class FacebookNemoris : MonoBehaviour {
 	// Listens to all the events.  All event listeners MUST be removed before this object is disposed!
 	void OnEnable()
 	{
-		FacebookManager.sessionOpenedEvent += sessionOpenedEvent;
-		FacebookManager.loginFailedEvent += loginFailedEvent;
-
-		FacebookManager.dialogCompletedWithUrlEvent += dialogCompletedEvent;
-		FacebookManager.dialogFailedEvent += dialogFailedEvent;
-
-		FacebookManager.graphRequestCompletedEvent += graphRequestCompletedEvent;
-		FacebookManager.graphRequestFailedEvent += facebookCustomRequestFailed;
-
-		FacebookManager.facebookComposerCompletedEvent += facebookComposerCompletedEvent;
-		
-		FacebookManager.reauthorizationFailedEvent += reauthorizationFailedEvent;
-		FacebookManager.reauthorizationSucceededEvent += reauthorizationSucceededEvent;
-		
-		FacebookManager.shareDialogFailedEvent += shareDialogFailedEvent;
-		FacebookManager.shareDialogSucceededEvent += shareDialogSucceededEvent;
-
-		//FacebookManager.restRequestCompletedEvent += restRequestCompletedEvent;
-		//FacebookManager.restRequestFailedEvent += restRequestFailedEvent;
-		//FacebookManager.facebookComposerCompletedEvent += facebookComposerCompletedEvent;
-
-		//FacebookManager.reauthorizationFailedEvent += reauthorizationFailedEvent;
-		//FacebookManager.reauthorizationSucceededEvent += reauthorizationSucceededEvent;
 	}
 
 
 	void OnDisable()
 	{
-		// Remove all the event handlers when disabled
-		FacebookManager.sessionOpenedEvent -= sessionOpenedEvent;
-		FacebookManager.loginFailedEvent -= loginFailedEvent;
-
-		FacebookManager.dialogCompletedWithUrlEvent -= dialogCompletedEvent;
-		FacebookManager.dialogFailedEvent -= dialogFailedEvent;
-
-		FacebookManager.graphRequestCompletedEvent -= graphRequestCompletedEvent;
-		FacebookManager.graphRequestFailedEvent -= facebookCustomRequestFailed;
-
-		FacebookManager.facebookComposerCompletedEvent -= facebookComposerCompletedEvent;
-		
-		FacebookManager.reauthorizationFailedEvent -= reauthorizationFailedEvent;
-		FacebookManager.reauthorizationSucceededEvent -= reauthorizationSucceededEvent;
-		
-		FacebookManager.shareDialogFailedEvent -= shareDialogFailedEvent;
-		FacebookManager.shareDialogSucceededEvent -= shareDialogSucceededEvent;
-
-		//FacebookManager.restRequestCompletedEvent -= restRequestCompletedEvent;
-		//FacebookManager.restRequestFailedEvent -= restRequestFailedEvent;
-		//FacebookManager.facebookComposerCompletedEvent -= facebookComposerCompletedEvent;
-
-		//FacebookManager.reauthorizationFailedEvent -= reauthorizationFailedEvent;
-		//FacebookManager.reauthorizationSucceededEvent -= reauthorizationSucceededEvent;
 	}
 	#endif
 	//lanzado cuando se loguea a FB
 	void sessionOpenedEvent()
 	{
-		textoDebug.text = ( "Successfully logged in to Facebook" );
-		//Facebook.instance.graphRequest("me", logueado); 
-		Facebook.instance.getMe(logueado);
 	}
 
 
@@ -686,7 +380,7 @@ public class FacebookNemoris : MonoBehaviour {
 	}
 
 #endif
-
+*/
 }
 
 [System.Serializable]

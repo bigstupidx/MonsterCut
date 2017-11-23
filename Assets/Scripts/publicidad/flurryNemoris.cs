@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Prime31;
+ //using Prime31;
 
 public class flurryNemoris : MonoBehaviour {
 	public string flurryKey = "743CMVG3T7G2YZTYYXTZ";
@@ -21,16 +21,16 @@ public class flurryNemoris : MonoBehaviour {
 		fullscreen, bottom, top
 		}
 	public orientacionAd bannerOrientacionAd = orientacionAd.bottom;
-#if UNITY_IPHONE
+/*#if UNITY_IPHONE
 	//FlurryAdSize bannerOrientacion;
 #endif	
 #if UNITY_ANDROID
 	FlurryAdPlacement bannerOrientacion;
-#endif	
+#endif	*/
 	string mensaje = "";
 	// Use this for initialization
 	void Start () {
-		Time.timeScale = 1f;
+		/*Time.timeScale = 1f;
 		switch (bannerOrientacionAd) {
 		case orientacionAd.bottom:
 			#if UNITY_IPHONE
@@ -78,22 +78,17 @@ public class flurryNemoris : MonoBehaviour {
 #if UNITY_IPHONE
 		DontDestroyOnLoad(gameObject);
 		
-		/*//FlurryAnalytics.startSession( flurryKey );
 		
-		FlurryAds.enableAds( testAds );
-		
-		//FlurryAnalytics.setSessionReportsOnCloseEnabled(true);*/
 #endif	
 		
 		mensaje = "sistema inicializado";
-
+        */
 	}
-	
+	/*
 	void OnLevelWasLoaded(int idEscena){
 		//registro de escena ingresada
 #if UNITY_IPHONE
-		/*if(lastLoadedLevel != "") //FlurryAnalytics.endTimedEvent(lastLoadedLevel);
-		//FlurryAnalytics.logEvent( Application.loadedLevelName, true );*/
+		
 #endif		
 #if UNITY_ANDROID
 		if(lastLoadedLevel != "") FlurryAndroid.endTimedEvent(lastLoadedLevel);
@@ -110,8 +105,6 @@ public class flurryNemoris : MonoBehaviour {
 		if (!activateAds)
 				return;	
 		#if UNITY_IPHONE
-		/*FlurryAds.removeAdFromSpace("adSpace");
-		FlurryAds.removeAdFromSpace("splash");*/
 		for(int i = 0; i < escenasBanner.Length; i++){
 			if(escenasBanner[i] == Application.loadedLevelName){
 				mostrarBanner();
@@ -155,8 +148,6 @@ public class flurryNemoris : MonoBehaviour {
 
 	public void eliminarAds(){
 		#if UNITY_IPHONE
-		/*FlurryAds.removeAdFromSpace("adSpace");
-		FlurryAds.removeAdFromSpace("splash");*/
 		#endif	
 		#if UNITY_ANDROID
 		FlurryAndroid.removeAd ("adSpace");
@@ -166,8 +157,6 @@ public class flurryNemoris : MonoBehaviour {
 	
 	void mostrarInterstitial(){
 #if UNITY_IPHONE
-		/*mensaje = "en splash " + FlurryAds.isAdAvailableForSpace( "splash", FlurryAdSize.Fullscreen );
-		FlurryAds.fetchAndDisplayAdForSpace( "splash", FlurryAdSize.Fullscreen );*/
 #endif	
 #if UNITY_ANDROID
 
@@ -179,8 +168,6 @@ public class flurryNemoris : MonoBehaviour {
 	
 	void mostrarBanner(){
 #if UNITY_IPHONE
-		/*mensaje = "en banner " + FlurryAds.isAdAvailableForSpace( "adSpace", bannerOrientacion );
-		FlurryAds.fetchAndDisplayAdForSpace( "adSpace", bannerOrientacion );*/
 #endif	
 #if UNITY_ANDROID
 		mensaje = "en banner ";
@@ -199,8 +186,6 @@ public class flurryNemoris : MonoBehaviour {
 		#endif
 		if(!activateAds) return;	
 #if UNITY_IPHONE		
-		/*FlurryAds.removeAdFromSpace( "adSpace" );
-		FlurryAds.removeAdFromSpace( "splash" );*/
 #endif	
 #if UNITY_ANDROID		
 	    FlurryAndroid.removeAd("adSpace");
@@ -216,28 +201,28 @@ public class flurryNemoris : MonoBehaviour {
 	void OnEnable()
 	{
 		// Listen to all events for illustration purposes
-		/*FlurryManager.spaceDidDismissEvent += spaceDidDismissEvent;
+		FlurryManager.spaceDidDismissEvent += spaceDidDismissEvent;
 		FlurryManager.spaceWillLeaveApplicationEvent += spaceWillLeaveApplicationEvent;
 		FlurryManager.spaceDidFailToRenderEvent += spaceDidFailToRenderEvent;
 		FlurryManager.spaceDidReceiveAdEvent += spaceDidReceiveAdEvent;
 		FlurryManager.spaceDidFailToReceiveAdEvent += spaceDidFailToReceiveAdEvent;
 //		FlurryManager.onCurrencyValueUpdatedEvent += onCurrencyValueUpdatedEvent;
 //		FlurryManager.onCurrencyValueFailedToUpdateEvent += onCurrencyValueFailedToUpdateEvent;
-		FlurryManager.videoDidFinishEvent += videoDidFinishEvent;*/
+		FlurryManager.videoDidFinishEvent += videoDidFinishEvent;
 	}
 
 
 	void OnDisable()
 	{
 		// Remove all event handlers
-		/*FlurryManager.spaceDidDismissEvent -= spaceDidDismissEvent;
+		FlurryManager.spaceDidDismissEvent -= spaceDidDismissEvent;
 		FlurryManager.spaceWillLeaveApplicationEvent -= spaceWillLeaveApplicationEvent;
 		FlurryManager.spaceDidFailToRenderEvent -= spaceDidFailToRenderEvent;
 		FlurryManager.spaceDidReceiveAdEvent -= spaceDidReceiveAdEvent;
 		FlurryManager.spaceDidFailToReceiveAdEvent -= spaceDidFailToReceiveAdEvent;
 //		FlurryManager.onCurrencyValueUpdatedEvent -= onCurrencyValueUpdatedEvent;
 //		FlurryManager.onCurrencyValueFailedToUpdateEvent -= onCurrencyValueFailedToUpdateEvent;
-		FlurryManager.videoDidFinishEvent -= videoDidFinishEvent;*/
+		FlurryManager.videoDidFinishEvent -= videoDidFinishEvent;
 	}
 
 
@@ -275,9 +260,7 @@ public class flurryNemoris : MonoBehaviour {
 			}
 		}
 		if(!encontrado){
-
-		/*	FlurryAds.removeAdFromSpace( "adSpace" );
-			FlurryAds.removeAdFromSpace( "splash" );*/
+        
 
 		}
 		mensaje = ( "spaceDidReceiveAdEvent: " + space );
@@ -403,5 +386,5 @@ public class flurryNemoris : MonoBehaviour {
 	}
 
 #endif	
-
+*/
 }

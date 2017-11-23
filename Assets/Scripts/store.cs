@@ -60,7 +60,7 @@ public class store : MonoBehaviour {
 		////FlurryAnalytics.logEvent( "monedasCompradas" + monedas, false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("monedasCompradas" + monedas);
+		//FlurryAndroid.logEvent("monedasCompradas" + monedas);
 		#endif
 		sugerenciasCompra.mostrarPanelComprado(itemsMoneda[idMonedaActual].titulo.text, itemsMoneda[idMonedaActual].imagen);
 	}
@@ -71,7 +71,7 @@ public class store : MonoBehaviour {
 		////FlurryAnalytics.logEvent( "compraFallida", false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("compraFallida");
+		//FlurryAndroid.logEvent("compraFallida");
 		#endif
 	}
 	
@@ -165,7 +165,7 @@ public class store : MonoBehaviour {
 			////FlurryAnalytics.logEvent( "comprarObjeto"+id, false );
 			#endif		
 			#if UNITY_ANDROID
-			FlurryAndroid.logEvent("comprarObjeto"+id);
+			//FlurryAndroid.logEvent("comprarObjeto"+id);
 			#endif
 			sugerenciasCompra.mostrarPanelComprado(itemsObjeto[id].titulo.text, itemsObjeto[id].imagen);
 		}
@@ -177,7 +177,7 @@ public class store : MonoBehaviour {
 		////FlurryAnalytics.logEvent( "visualActivado" + id, false );
 		#endif		
 		#if UNITY_ANDROID
-		FlurryAndroid.logEvent("visualActivado" + id);
+		//FlurryAndroid.logEvent("visualActivado" + id);
 		#endif
 		PlayerPrefs.SetInt(itemsVisual[id].playerPref, active?2:1);
 	}
@@ -188,7 +188,7 @@ public class store : MonoBehaviour {
 			////FlurryAnalytics.logEvent( "visualComprado" + id, false );
 			#endif		
 			#if UNITY_ANDROID
-			FlurryAndroid.logEvent("visualComprado" + id);
+			//FlurryAndroid.logEvent("visualComprado" + id);
 			#endif
 			PlayerPrefs.SetInt(itemsVisual[id].playerPref, 1);
 			actualizarItemsVisual();
@@ -203,7 +203,7 @@ public class store : MonoBehaviour {
 			////FlurryAnalytics.logEvent( "comprarMejora"+id, false );
 			#endif		
 			#if UNITY_ANDROID
-			FlurryAndroid.logEvent("comprarMejora"+id);
+			//FlurryAndroid.logEvent("comprarMejora"+id);
 			#endif
 			sugerenciasCompra.mostrarPanelComprado(itemsMejora[id].titulo.text, itemsMejora[id].imagen);
 		}
@@ -239,7 +239,7 @@ public class store : MonoBehaviour {
 			////FlurryAnalytics.logEvent( "upgradePeluquero"+id+"poder1n"+PlayerPrefs.GetInt("peluquero" + id + "Poder1", 0) + 1, false );
 			#endif		
 			#if UNITY_ANDROID
-			FlurryAndroid.logEvent("upgradePeluquero"+id+"poder1n"+PlayerPrefs.GetInt("peluquero" + id + "Poder1", 0) + 1);
+			//FlurryAndroid.logEvent("upgradePeluquero"+id+"poder1n"+PlayerPrefs.GetInt("peluquero" + id + "Poder1", 0) + 1);
 			#endif
 			PlayerPrefs.SetInt("peluquero" + id + "Poder1", PlayerPrefs.GetInt("peluquero" + id + "Poder1", 0) + 1);
 			actualizarItemsPeluqueros();
@@ -252,7 +252,7 @@ public class store : MonoBehaviour {
 			////FlurryAnalytics.logEvent( "upgradePeluquero"+id+"poder2n"+PlayerPrefs.GetInt("peluquero" + id + "Poder2", 0) + 1, false );
 			#endif		
 			#if UNITY_ANDROID
-			FlurryAndroid.logEvent("upgradePeluquero"+id+"poder2n"+PlayerPrefs.GetInt("peluquero" + id + "Poder2", 0) + 1);
+			//FlurryAndroid.logEvent("upgradePeluquero"+id+"poder2n"+PlayerPrefs.GetInt("peluquero" + id + "Poder2", 0) + 1);
 			#endif
 			PlayerPrefs.SetInt("peluquero" + id + "Poder2", PlayerPrefs.GetInt("peluquero" + id + "Poder2", 0) + 1);
 			actualizarItemsPeluqueros();
@@ -265,7 +265,7 @@ public class store : MonoBehaviour {
 			////FlurryAnalytics.logEvent( "upgradePeluquero"+id+"n"+PlayerPrefs.GetInt("peluquero" + id + "nivel", 1) + 1, false );
 			#endif		
 			#if UNITY_ANDROID
-			FlurryAndroid.logEvent("upgradePeluquero"+id+"n"+PlayerPrefs.GetInt("peluquero" + id + "nivel", 1) + 1);
+			//FlurryAndroid.logEvent("upgradePeluquero"+id+"n"+PlayerPrefs.GetInt("peluquero" + id + "nivel", 1) + 1);
 			#endif
 			PlayerPrefs.SetInt("peluquero" + id + "nivel", PlayerPrefs.GetInt("peluquero" + id + "nivel", 1) + 1);
 			PlayerPrefs.SetInt("peluquero" + id + "exp", globalVariables.niveles[PlayerPrefs.GetInt("peluquero" + id + "nivel") - 1]);
@@ -279,7 +279,7 @@ public class store : MonoBehaviour {
 			////FlurryAnalytics.logEvent( "comprarPeluquero"+id, false );
 			#endif		
 			#if UNITY_ANDROID
-			FlurryAndroid.logEvent("comprarPeluquero"+id);
+			//FlurryAndroid.logEvent("comprarPeluquero"+id);
 			#endif
 			PlayerPrefs.SetInt("peluquero" + id, 1);
 			actualizarItemsPeluqueros();

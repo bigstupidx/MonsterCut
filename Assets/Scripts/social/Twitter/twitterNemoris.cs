@@ -1,10 +1,10 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Prime31;
+//using Prime31;
 
 public class twitterNemoris : MonoBehaviour {
-	public UILabel textoDebug;
+	/*public UILabel textoDebug;
 	public bool showDebugText = true;
 	bool logged = false;
 	string mensajePost = "";
@@ -103,6 +103,6 @@ public class twitterNemoris : MonoBehaviour {
 	void Update () {
 	
 	}
-
+    */
 
 }

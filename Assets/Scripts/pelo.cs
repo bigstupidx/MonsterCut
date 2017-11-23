@@ -29,7 +29,7 @@ public class pelo : MonoBehaviour {
 
 	public Transform brillo;
 	
-	void Start () {
+	void Awake () {
 		int mejoraOro = PlayerPrefs.GetInt("mejoraOro", 0);
 		switch(mejoraOro){
 		case 0:
@@ -127,7 +127,7 @@ public class pelo : MonoBehaviour {
 				//FlurryAnalytics.logEvent("monedaGanada", false );
 				#endif		
 				#if UNITY_ANDROID
-				FlurryAndroid.logEvent("monedaGanada");
+				//FlurryAndroid.logEvent("monedaGanada");
 				#endif
 			}
 		//}
@@ -170,16 +170,20 @@ public class pelo : MonoBehaviour {
 	}
 	
 	public void velocidadCrecimiento(int porcentage){
-		//animacion[animacion.animationData.animationClips[idAnimacionActual].animationName].speed = (porcentage / 100f) * 0.75f;
-		GetComponent<Animation>()["completo" + idAnimacionActual].speed = (porcentage / 10f);
-		//print (animation["completo" + idAnimacionActual].speed);
-		//tiempoActual += (tiempoCrecimiento * (1f - porcentage / 100f));
-		if(porcentage != 100){ 
-			tiempoCrecimiento *= (1f + porcentage / 100f) * 1.25f;
-			tiempoActual = Time.time + tiempoCrecimiento;
-		}
-		else tiempoCrecimiento = tiempoCrecimientoAux;
-		//print (tiempoActual);
+        if (GetComponent<Animation>() != null && this != null && transform != null && gameObject != null)
+        {
+            //animacion[animacion.animationData.animationClips[idAnimacionActual].animationName].speed = (porcentage / 100f) * 0.75f;
+            GetComponent<Animation>()["completo" + idAnimacionActual].speed = (porcentage / 10f);
+            //print (animation["completo" + idAnimacionActual].speed);
+            //tiempoActual += (tiempoCrecimiento * (1f - porcentage / 100f));
+            if (porcentage != 100)
+            {
+                tiempoCrecimiento *= (1f + porcentage / 100f) * 1.25f;
+                tiempoActual = Time.time + tiempoCrecimiento;
+            }
+            else tiempoCrecimiento = tiempoCrecimientoAux;
+            //print (tiempoActual);
+        }
 	}
 	
 	public void detenerTotalmente(float tiempo){

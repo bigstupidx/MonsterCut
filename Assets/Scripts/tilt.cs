@@ -12,12 +12,19 @@ public class tilt : MonoBehaviour {
 	public bool useFullAngles = false;
 	public bool snapToPositions = false;
 	GameObject centralObj;
+    central centralScript;
 	bool activado = true;
 	float angMenorAlcanzado = 0f;
 	float angMayorAlcanzado = 0f;
-	
-	void Start () {
-		if(useFullAngles) centralObj = GameObject.FindGameObjectWithTag("central");
+
+    void Awake()
+    {
+        if (useFullAngles)
+        {
+            centralObj = GameObject.FindGameObjectWithTag("central");
+            centralScript = centralObj.GetComponent<central>();
+        }
+    
 	}
 	
 	void activar(bool a){
@@ -55,7 +62,13 @@ public class tilt : MonoBehaviour {
 	}
 	
 	void cortarPeloTilt(){
-		centralObj.SendMessage("cortarPelo", pos);	
+        if (centralObj == null || centralScript == null)
+        {
+            centralObj = GameObject.FindGameObjectWithTag("central");
+            centralScript = centralObj.GetComponent<central>();
+        }
+        centralScript.cortarPelo(pos);
+        //centralObj.SendMessage("cortarPelo", pos);	
 	}
 	
 	// Update is called once per frame

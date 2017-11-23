@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class addbuddizNemoris : MonoBehaviour {
-	//public string[] escenasInterstitial;
+	/*//public string[] escenasInterstitial;
 	bool activateAds = true;
 	public int conteoMuestra = 5;
 	public int incremento = 2;
@@ -33,5 +33,5 @@ public class addbuddizNemoris : MonoBehaviour {
 	void Update () {
 		
 	}
-
+    */
 }

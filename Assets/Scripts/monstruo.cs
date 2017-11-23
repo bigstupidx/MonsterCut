@@ -23,7 +23,7 @@ public class monstruo : MonoBehaviour {
 	public int animo = 0;
 	//public bool iniciado = false;
 	public bool completo = false;
-	GameObject centralObj;
+	public GameObject centralObj;
 	public bool pausado = false;
 	
 	public Transform reloj;
@@ -158,14 +158,16 @@ public class monstruo : MonoBehaviour {
 		if(pausado || !composicionCompleta) return;
 		int completos = 0;
 		for(int i = 0; i < totalPelos; i++){
-			if(peloMonstruoScript[i].peloCompleto) completos++;
+            if(peloMonstruoScript!= null && peloMonstruoScript.Length > 0 && peloMonstruoScript[i] != null)
+			    if(peloMonstruoScript[i].peloCompleto) completos++;
 		}
 		//if((float)completos/(float)totalPelos >= (float)finalPorcentaje/100.0f) completo = true;
 		if(completos >= totalPelos) completo = true; 
 		else completo = false;
 		
 		if(completo){ 
-			centralObj.SendMessage("monstruoCompleto");
+            if(centralObj != null)
+			    centralObj.SendMessage("monstruoCompleto");
 			final ();
 		}
 	}
@@ -220,122 +222,152 @@ public class monstruo : MonoBehaviour {
 	}
 	
 	public void poderCortarPeloCompleto(int nivel, int pos){
-		
-		//Playtomic.Log.LevelCounterMetric("poderPeloCompleto", "nivel"+PlayerPrefs.GetInt ("nivelActual", 1));
-		
-		//en nivel 5 corta un pelo completo
-		peloMonstruoScript[pos].cortar( 30f + (70f * nivel) / 5f, false);
-		if(nivel >= 5){
-			//daño colateral 
-			if(pos - 1 >= 0) 
-				peloMonstruoScript[pos - 1].cortar((100f * nivel) / 20f, false);
-			if(pos + 1 < peloMonstruoScript.Length) 
-				peloMonstruoScript[pos + 1].cortar((100f * nivel) / 20f, false);
-			
-			if(nivel >= 8){
-				if(pos - 2 >= 0) 
-					peloMonstruoScript[pos - 2].cortar((100f * nivel) / 40f, false);
-				if(pos + 2 < peloMonstruoScript.Length) 
-					peloMonstruoScript[pos + 2].cortar((100f * nivel) / 40f, false);	
-			}
-		}
-		expresionScript.setExpresionActual(expresion.expresiones.sorpresa);
+        if (peloMonstruoScript != null && peloMonstruoScript.Length > 0 && this != null && transform != null && gameObject != null)
+        {
+            //Playtomic.Log.LevelCounterMetric("poderPeloCompleto", "nivel"+PlayerPrefs.GetInt ("nivelActual", 1));
+
+            //en nivel 5 corta un pelo completo
+            if(peloMonstruoScript[pos] != null)
+                peloMonstruoScript[pos].cortar(30f + (70f * nivel) / 5f, false);
+            if (nivel >= 5)
+            {
+                //daño colateral 
+                if (pos - 1 >= 0)
+                    if (peloMonstruoScript[pos-1] != null)
+                        peloMonstruoScript[pos - 1].cortar((100f * nivel) / 20f, false);
+                if (pos + 1 < peloMonstruoScript.Length)
+                    if (peloMonstruoScript[pos+1] != null)
+                        peloMonstruoScript[pos + 1].cortar((100f * nivel) / 20f, false);
+
+                if (nivel >= 8)
+                {
+                    if (pos - 2 >= 0)
+                        if (peloMonstruoScript[pos-2] != null)
+                            peloMonstruoScript[pos - 2].cortar((100f * nivel) / 40f, false);
+                    if (pos + 2 < peloMonstruoScript.Length)
+                        if (peloMonstruoScript[pos+2] != null)
+                            peloMonstruoScript[pos + 2].cortar((100f * nivel) / 40f, false);
+                }
+            }
+            expresionScript.setExpresionActual(expresion.expresiones.sorpresa);
+        }
 	}
 	
 	public IEnumerator poderCongelar(float tiempoEfecto){
-		//tiempo para aplicar el congelar cuando aparece un nuevo monstruo
-		yield return new WaitForSeconds(0.5f);
-		//Playtomic.Log.LevelCounterMetric("poderCongelar", "nivel"+PlayerPrefs.GetInt ("nivelActual", 1));
-		ultimoPoderEjecutado = "poderCongelar";
-		expresionScript.setExpresionActual(expresion.expresiones.sorpresa);
-		//en nivel 5 congela un monstruo completo
-		print(ultimoPoderEjecutado + tiempoEfecto);
-		for(int i = 0; i < totalPelos; i++){
-			if(peloMonstruoScript.Length > i && peloMonstruoScript[i] != null) peloMonstruoScript[i].velocidadCrecimiento(30);
-		}
-		tiempoFinEfecto = Time.time + tiempoEfecto;
-		iniciarReloj (tiempoEfecto);
-		yield return new WaitForSeconds(tiempoEfecto);
-		tiempoFinEfecto = 0f;
-		print ("terminado");
-		for(int i = 0; i < totalPelos; i++){
-			if(peloMonstruoScript.Length > i && peloMonstruoScript[i] != null) peloMonstruoScript[i].velocidadCrecimiento(100);
-		}
+        if (peloMonstruoScript != null && peloMonstruoScript.Length > 0 && this != null && transform != null && gameObject != null)
+        {//tiempo para aplicar el congelar cuando aparece un nuevo monstruo
+            yield return new WaitForSeconds(0.5f);
+            //Playtomic.Log.LevelCounterMetric("poderCongelar", "nivel"+PlayerPrefs.GetInt ("nivelActual", 1));
+            ultimoPoderEjecutado = "poderCongelar";
+            expresionScript.setExpresionActual(expresion.expresiones.sorpresa);
+            //en nivel 5 congela un monstruo completo
+            print(ultimoPoderEjecutado + tiempoEfecto);
+            for (int i = 0; i < totalPelos; i++)
+            {
+                if (peloMonstruoScript.Length > i && peloMonstruoScript[i] != null) peloMonstruoScript[i].velocidadCrecimiento(30);
+            }
+            tiempoFinEfecto = Time.time + tiempoEfecto;
+            iniciarReloj(tiempoEfecto);
+            yield return new WaitForSeconds(tiempoEfecto);
+            tiempoFinEfecto = 0f;
+            print("terminado");
+            for (int i = 0; i < totalPelos; i++)
+            {
+                if (peloMonstruoScript.Length > i && peloMonstruoScript[i] != null) peloMonstruoScript[i].velocidadCrecimiento(100);
+            }
+        }
 	}
 	
 	public void poderCortarPuntas(int nivel, int pos){
-		//Playtomic.Log.LevelCounterMetric("poderCortarPuntas", "nivel"+PlayerPrefs.GetInt ("nivelActual", 1));
-	
-		peloMonstruoScript[pos].cortar( (30f * nivel) / 5f, false);
-		for(int i = 1; i <= (int)(nivel / 2f); i++){
-			if(pos - i >= 0) peloMonstruoScript[pos - i].cortar( (30f * nivel) / 5f, false);
-			if(pos + i < peloMonstruoScript.Length) peloMonstruoScript[pos + i].cortar( (30f * nivel) / 5f, false);
-		}
-		/*peloMonstruoScript[pos].cortar( 30f + (70f * nivel) / 5f, false);
-		if(nivel >= 5){
-			//daño colateral 
-			if(pos - 1 >= 0) 
-				peloMonstruoScript[pos - 1].cortar((100f * nivel) / 20f, false);
-			if(pos + 1 < peloMonstruoScript.Length) 
-				peloMonstruoScript[pos + 1].cortar((100f * nivel) / 20f, false);
-			
-			if(nivel >= 8){
-				if(pos - 2 >= 0) 
-					peloMonstruoScript[pos - 2].cortar((100f * nivel) / 40f, false);
-				if(pos + 2 < peloMonstruoScript.Length) 
-					peloMonstruoScript[pos + 2].cortar((100f * nivel) / 40f, false);	
-			}
-		}*/
-		expresionScript.setExpresionActual(expresion.expresiones.sorpresa);
+        if (peloMonstruoScript != null && peloMonstruoScript.Length > 0 && this != null && transform != null && gameObject != null)
+        {//Playtomic.Log.LevelCounterMetric("poderCortarPuntas", "nivel"+PlayerPrefs.GetInt ("nivelActual", 1));
+            if (peloMonstruoScript[pos] != null)
+                peloMonstruoScript[pos].cortar((30f * nivel) / 5f, false);
+            for (int i = 1; i <= (int)(nivel / 2f); i++)
+            {
+                if (pos - i >= 0)
+                    if (peloMonstruoScript[pos-i] != null)
+                        peloMonstruoScript[pos - i].cortar((30f * nivel) / 5f, false);
+                if (pos + i < peloMonstruoScript.Length)
+                    if (peloMonstruoScript[pos + i] != null)
+                        peloMonstruoScript[pos + i].cortar((30f * nivel) / 5f, false);
+            }
+            /*peloMonstruoScript[pos].cortar( 30f + (70f * nivel) / 5f, false);
+            if(nivel >= 5){
+                //daño colateral 
+                if(pos - 1 >= 0) 
+                    peloMonstruoScript[pos - 1].cortar((100f * nivel) / 20f, false);
+                if(pos + 1 < peloMonstruoScript.Length) 
+                    peloMonstruoScript[pos + 1].cortar((100f * nivel) / 20f, false);
+
+                if(nivel >= 8){
+                    if(pos - 2 >= 0) 
+                        peloMonstruoScript[pos - 2].cortar((100f * nivel) / 40f, false);
+                    if(pos + 2 < peloMonstruoScript.Length) 
+                        peloMonstruoScript[pos + 2].cortar((100f * nivel) / 40f, false);	
+                }
+            }*/
+            expresionScript.setExpresionActual(expresion.expresiones.sorpresa);
+        }
 	}
 	
 	public IEnumerator poderDetenerTiempo(float tiempoEfecto){
-		//tiempo para aplicar el congelar cuando aparece un nuevo monstruo
-		yield return new WaitForSeconds(0.5f);
-		//Playtomic.Log.LevelCounterMetric("poderDetenerTiempo", "nivel"+PlayerPrefs.GetInt ("nivelActual", 1));
-		ultimoPoderEjecutado = "poderDetenerTiempo";
-		expresionScript.setExpresionActual(expresion.expresiones.sorpresa);
-		
-		//en nivel 5 congela un monstruo completo
-		print(ultimoPoderEjecutado + tiempoEfecto);
-		for(int i = 0; i < totalPelos; i++){
-			if(peloMonstruoScript.Length > i && peloMonstruoScript[i] != null) peloMonstruoScript[i].velocidadCrecimiento(0);
-			if(peloMonstruoScript.Length > i && peloMonstruoScript[i] != null) peloMonstruoScript[i].detenerTotalmente(tiempoEfecto);
-		}
-		tiempoFinEfecto = Time.time + tiempoEfecto;
-		iniciarReloj (tiempoEfecto);
-		yield return new WaitForSeconds(tiempoEfecto);
-		tiempoFinEfecto = 0f;
-		for(int i = 0; i < totalPelos; i++){
-			if(peloMonstruoScript.Length > i && peloMonstruoScript[i] != null) peloMonstruoScript[i].velocidadCrecimiento(100);
-		}
-		
+        if (peloMonstruoScript != null && peloMonstruoScript.Length > 0 && this != null && transform != null && gameObject != null)
+        {
+            //tiempo para aplicar el congelar cuando aparece un nuevo monstruo
+            yield return new WaitForSeconds(0.5f);
+            //Playtomic.Log.LevelCounterMetric("poderDetenerTiempo", "nivel"+PlayerPrefs.GetInt ("nivelActual", 1));
+            ultimoPoderEjecutado = "poderDetenerTiempo";
+            expresionScript.setExpresionActual(expresion.expresiones.sorpresa);
+
+            //en nivel 5 congela un monstruo completo
+            print(ultimoPoderEjecutado + tiempoEfecto);
+            for (int i = 0; i < totalPelos; i++)
+            {
+                if (peloMonstruoScript.Length > i && peloMonstruoScript[i] != null) peloMonstruoScript[i].velocidadCrecimiento(0);
+                if (peloMonstruoScript.Length > i && peloMonstruoScript[i] != null) peloMonstruoScript[i].detenerTotalmente(tiempoEfecto);
+            }
+            tiempoFinEfecto = Time.time + tiempoEfecto;
+            iniciarReloj(tiempoEfecto);
+            yield return new WaitForSeconds(tiempoEfecto);
+            tiempoFinEfecto = 0f;
+            for (int i = 0; i < totalPelos; i++)
+            {
+                if (peloMonstruoScript.Length > i && peloMonstruoScript[i] != null) peloMonstruoScript[i].velocidadCrecimiento(100);
+            }
+        }
 	}
 	
 	public IEnumerator poderAutoCorte(float tiempoEfecto){
-		ultimoPoderEjecutado = "poderAutoCorte";
-		expresionScript.setExpresionActual(expresion.expresiones.sorpresa);
-		
-		print(ultimoPoderEjecutado + tiempoEfecto);
-		centralObj.SendMessage("peluqueroCorteAutomatico", true);
-		tiempoFinEfecto = Time.time + tiempoEfecto;
-		iniciarReloj (tiempoEfecto);
-		yield return new WaitForSeconds(tiempoEfecto);
-		tiempoFinEfecto = 0f;
-		centralObj.SendMessage("peluqueroCorteAutomatico", false);
+        if (this != null && transform != null && gameObject != null)
+        {
+            ultimoPoderEjecutado = "poderAutoCorte";
+            expresionScript.setExpresionActual(expresion.expresiones.sorpresa);
+
+            print(ultimoPoderEjecutado + tiempoEfecto);
+            centralObj.SendMessage("peluqueroCorteAutomatico", true);
+            tiempoFinEfecto = Time.time + tiempoEfecto;
+            iniciarReloj(tiempoEfecto);
+            yield return new WaitForSeconds(tiempoEfecto);
+            tiempoFinEfecto = 0f;
+            centralObj.SendMessage("peluqueroCorteAutomatico", false);
+        }
 	}
 	
 	public IEnumerator poderFuerza(float tiempoEfecto){
-		ultimoPoderEjecutado = "poderFuerza";
-		expresionScript.setExpresionActual(expresion.expresiones.sorpresa);
-		
-		print(ultimoPoderEjecutado + tiempoEfecto);
-		centralObj.SendMessage("peluqueroPoderFuerza", true);
-		tiempoFinEfecto = Time.time + tiempoEfecto;
-		iniciarReloj (tiempoEfecto);
-		yield return new WaitForSeconds(tiempoEfecto);
-		tiempoFinEfecto = 0f;
-		centralObj.SendMessage("peluqueroPoderFuerza", false);
+        if (this != null && transform != null && gameObject != null)
+        {
+            ultimoPoderEjecutado = "poderFuerza";
+            expresionScript.setExpresionActual(expresion.expresiones.sorpresa);
+
+            print(ultimoPoderEjecutado + tiempoEfecto);
+            centralObj.SendMessage("peluqueroPoderFuerza", true);
+            tiempoFinEfecto = Time.time + tiempoEfecto;
+            iniciarReloj(tiempoEfecto);
+            yield return new WaitForSeconds(tiempoEfecto);
+            tiempoFinEfecto = 0f;
+            centralObj.SendMessage("peluqueroPoderFuerza", false);
+        }
 	}
 	
 	/*public IEnumerator ejecutarUltimoPoder(float tiempo){
@@ -349,8 +381,11 @@ public class monstruo : MonoBehaviour {
 	}*/
 	
 	void iniciarReloj(float tiempo){
-		Transform t = (Transform) Instantiate (reloj, transform.position + new Vector3(0, 0, -50), Quaternion.identity);
-		t.gameObject.SendMessage("setTiempoVida", tiempo);
+        if (transform != null)
+        {
+            Transform t = (Transform)Instantiate(reloj, transform.position + new Vector3(0, 0, -50), Quaternion.identity);
+            t.gameObject.SendMessage("setTiempoVida", tiempo);
+        }
 		//StartCoroutine();	
 	}
 	
