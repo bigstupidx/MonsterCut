@@ -44,8 +44,9 @@ public class barraTrofeos : MonoBehaviour {
 		actualizarPuntajeTotalAux(0);
 		actualizarPanelLogro();
 		//eliminar
-		GameObject c = GameObject.FindWithTag("central");
-		if(c != null){
+		//GameObject c = GameObject.FindWithTag("central");
+        GameObject c = GameObject.Find(".central");
+        if (c != null){
 			print ("encontrado");
 			centralScript = c.GetComponent<central>();	
 		}
@@ -199,7 +200,8 @@ public class barraTrofeos : MonoBehaviour {
 	
 	void OnLevelWasLoaded(){
 		actualizarPuntajeTotal();
-		GameObject c = GameObject.FindWithTag("central");
+        GameObject c = GameObject.Find(".central");
+        //GameObject c = GameObject.FindWithTag("central");
 		if(c != null){
 			print ("encontrado");
 			centralScript = c.GetComponent<central>();	

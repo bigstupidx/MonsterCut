@@ -7,8 +7,7 @@ public class tutorialControl : MonoBehaviour {
 	public string prefTutorial = "tutorial1";
 	// Use this for initialization
 	void Start () {
-
-		if(PlayerPrefs.GetInt(prefTutorial, 0) == 1) skip ();
+        if (PlayerPrefs.GetInt(prefTutorial, 0) == 1) skip ();
 		else{
 			paneles[0].gameObject.SetActive(true);
 			Time.timeScale = paneles[0].pausar?0f:1f;
@@ -23,14 +22,14 @@ public class tutorialControl : MonoBehaviour {
 		}
 	}
 
-	void skip(){
+	public void skip(){
 		PlayerPrefs.SetInt(prefTutorial, 1);
 		Time.timeScale = 1f;
 		paneles[indice].mostrarBotones(true);
 		gameObject.SetActive(false);
 	}
 
-	void next(){
+	public void next(){
 		if (paneles [indice].mensajeTerminado ()) {
 			paneles[indice].mostrarBotones(true);
 			print ("botones mostrados");

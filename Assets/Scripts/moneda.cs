@@ -13,7 +13,7 @@ public class moneda : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		GameObject c = GameObject.FindWithTag("central");
+		GameObject c = GameObject.Find(".central");
 		centralScript = c.GetComponent<central>();
 		 //new Vector3(Camera.main.transform.position.x, 600f, transform.position.z);
 		

@@ -9,7 +9,7 @@ public class panelTutorial : MonoBehaviour {
 	string mensajeActual = "";
 	int indice = 0;
 	public bool pausar = false;
-	bool activado = false;
+	public bool activado = false;
 	float ciclo = 0f;
 	float intervaloTiempo;
 	public bool esperaEvento;
@@ -27,7 +27,7 @@ public class panelTutorial : MonoBehaviour {
 		textoLabel.text = "";
 	}
 
-	void posicionado(){
+	public void posicionado(){
 		print ("posicionado");
 		activado = true;
 	}

@@ -50,9 +50,15 @@ public class poder : MonoBehaviour {
 	void Start(){
 		cooldownImage.gameObject.SetActive(false);
 		//cooldownFijoImage.gameObject.SetActive(false);
-		peluqueroObj = GameObject.FindWithTag("peluquero");	
-		
-		if(posicion == 0)
+		peluqueroObj = GameObject.Find("Jesse(Clone)");
+        if (peluqueroObj == null)
+        {
+            peluqueroObj = GameObject.Find("Ron(Clone)");
+
+            if (peluqueroObj == null)
+                peluqueroObj = GameObject.Find("Rosa(Clone)");
+        }
+        if (posicion == 0)
 			cooldown *= 1f - 0.07f * PlayerPrefs.GetInt("mejoraCD1",0); 
 		else
 			cooldown *= 1f - 0.07f * PlayerPrefs.GetInt("mejoraCD2",0);

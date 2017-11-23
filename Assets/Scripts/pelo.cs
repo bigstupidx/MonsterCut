@@ -56,9 +56,9 @@ public class pelo : MonoBehaviour {
 		
 		tiempoCrecimientoAux = tiempoCrecimiento;
 		
-		centralObj = GameObject.FindWithTag("central");
-		
-		switch(dificultad){
+		centralObj = GameObject.Find(".central");
+
+        switch (dificultad){
 			case 1:
 				animacion.SetMeshColor(new Color(0.24609f, 0.5039f, 0.70703f, 1f));
 				animacion.updateColors = true;

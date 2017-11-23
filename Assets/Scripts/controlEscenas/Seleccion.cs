@@ -30,8 +30,8 @@ public class Seleccion : MonoBehaviour {
 
 	void swipe(){	
 		gameObject.SendMessage ("playSonido", sonidoManejo.tipoSonido.panel);
-		GameObject t = GameObject.FindWithTag("tutorial");
-		if(t != null){ print("enviado"); t.SendMessage("evento", 0, SendMessageOptions.RequireReceiver);}
+        GameObject t = GameObject.Find("UI Root (2D) Tutorial");
+        if (t != null){ print("enviado"); t.SendMessage("evento", 0, SendMessageOptions.RequireReceiver);}
 	}
 	
 	void seleccionarPeluquero1(){

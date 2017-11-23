@@ -332,8 +332,8 @@ public class store : MonoBehaviour {
 		scrollObjetos.SetActive(false);
 		scrollMonedas.SetActive(false);
 
-		GameObject t = GameObject.FindWithTag("tutorial");
-		if(t != null){ print("enviado"); t.SendMessage("evento", 2, SendMessageOptions.RequireReceiver);}
+		GameObject t = GameObject.Find("UI Root (2D) Tutorial");
+        if (t != null){ print("enviado"); t.SendMessage("evento", 2, SendMessageOptions.RequireReceiver);}
 	}
 	void mostrarPanelVisuales(){
 		/*reposicionarTweens();
@@ -371,8 +371,8 @@ public class store : MonoBehaviour {
 		scrollVisuales.SetActive(false);
 		scrollObjetos.SetActive(true);
 		scrollMonedas.SetActive(false);
-		GameObject t = GameObject.FindWithTag("tutorial");
-		if(t != null){ print("enviado"); t.SendMessage("evento", 4, SendMessageOptions.RequireReceiver);}
+		GameObject t = GameObject.Find("UI Root (2D) Tutorial");
+        if (t != null){ print("enviado"); t.SendMessage("evento", 4, SendMessageOptions.RequireReceiver);}
 	}
 	void mostrarPanelMonedas(){
 		/*reposicionarTweens();
@@ -391,8 +391,8 @@ public class store : MonoBehaviour {
 		scrollVisuales.SetActive(false);
 		scrollObjetos.SetActive(false);
 		scrollMonedas.SetActive(true);
-		GameObject t = GameObject.FindWithTag("tutorial");
-		if(t != null){ print("enviado"); t.SendMessage("evento", 6, SendMessageOptions.RequireReceiver);}
+		GameObject t = GameObject.Find("UI Root (2D) Tutorial");
+        if (t != null){ print("enviado"); t.SendMessage("evento", 6, SendMessageOptions.RequireReceiver);}
 	}
 	
 	/*void reposicionarTweens(){

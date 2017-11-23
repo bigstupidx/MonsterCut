@@ -70,7 +70,7 @@ public class central : MonoBehaviour {
 	//int poderesUsados = 0;
 	float expCollected = 0;
 	
-	GameObject barraEstrella;
+	//GameObject barraEstrella;
 	int idLenguaje = 0;
 	
 	public AudioSource musica;
@@ -195,8 +195,8 @@ public class central : MonoBehaviour {
 		toggleGUI(false, true);
 		pausaPreguntaGUI.gameObject.SetActive(false);
 		pausaPreguntaGUI.Play(false);
-		
-		barraEstrella = GameObject.FindWithTag("barraEstrella");
+        //barraEstrella = GameObject.Find(".central");
+        //barraEstrella = GameObject.FindWithTag("barraEstrella");
 		addPuntaje(0);
 		
 		definirEstaciones();
@@ -438,7 +438,7 @@ public class central : MonoBehaviour {
 			else
 				puntajeLabelAux.text = ""+ ceros + (puntajeTotal + puntajeNivel);
 		//if(idLenguaje == 1) puntajeLabel.text = ""+ ceros + (puntajeTotal + puntajeNivel);
-		if(barraEstrella != null) barraEstrella.SendMessage("actualizarPuntajeTotalAux", puntajeNivel);
+		//if(barraEstrella != null) barraEstrella.SendMessage("actualizarPuntajeTotalAux", puntajeNivel);
 	}
 	
 	void swipe(){
@@ -911,7 +911,7 @@ public class central : MonoBehaviour {
 				GameObject.FindGameObjectWithTag("sugerencias").SendMessage("mostrarPanel");
 				//PlayerPrefs.SetInt("puntajeTotalJuego", PlayerPrefs.GetInt("puntajeTotalJuego", 0) + puntajeNivel);
 				//PlayerPrefs.SetInt("puntajeMejor", Mathf.Max(puntajeTotal + puntajeNivel, PlayerPrefs.GetInt("puntajeMejor", 0)));
-				if(barraEstrella != null) barraEstrella.SendMessage("actualizarPuntajeTotal");
+				//if(barraEstrella != null) barraEstrella.SendMessage("actualizarPuntajeTotal");
 
 				if(PlayerPrefs.GetInt("tutorial7", 0) == 0) tutorialFinal.SetActive(true);
 				

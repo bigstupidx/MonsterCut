@@ -41,8 +41,8 @@ public class storePeluqueria : MonoBehaviour {
 		panelPrincipal.clipRange = new Vector4(panelPrincipal.clipRange.x, valorPanelInicial, panelPrincipal.clipRange.z, panelPrincipal.clipRange.w);
 		panelPrincipal.clipOffset = Vector2.zero;
 		scroll.value = 0f;
-		GameObject t = GameObject.FindWithTag("tutorial");
-		if(t != null){ print("enviado"); t.SendMessage("evento", 2, SendMessageOptions.RequireReceiver);}
+		GameObject t = GameObject.Find("UI Root (2D) Tutorial");
+        if (t != null){ print("enviado"); t.SendMessage("evento", 2, SendMessageOptions.RequireReceiver);}
 	}
 	
 	void irStore(){
@@ -85,8 +85,8 @@ public class storePeluqueria : MonoBehaviour {
 	public void activar0(bool ev){ activar(0, ev); }
 	public void activar1(bool ev){ activar(1, ev); }
 	public void activar2(bool ev){ activar(2, ev); }
-	public void activar3(bool ev){ activar(3, ev); GameObject t = GameObject.FindWithTag("tutorial");
-		if(t != null){ print("enviado"); t.SendMessage("evento", 4, SendMessageOptions.RequireReceiver);}}
+	public void activar3(bool ev){ activar(3, ev); GameObject t = GameObject.Find("UI Root (2D) Tutorial");
+        if (t != null){ print("enviado"); t.SendMessage("evento", 4, SendMessageOptions.RequireReceiver);}}
 	public void activar4(bool ev){ activar(4, ev); }
 	public void activar5(bool ev){ activar(5, ev); }
 	public void activar6(bool ev){ activar(6, ev); }

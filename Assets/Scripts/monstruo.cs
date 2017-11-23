@@ -83,8 +83,8 @@ public class monstruo : MonoBehaviour {
 		}
 		print (colorCuerpo);
 		cuerpo.SetBoneColor ((tipo==0)?"cuerpo":"cuerpoEncima", colorCuerpo, 1f);
-		centralObj = GameObject.FindWithTag("central");
-		if (tween == null) {
+		centralObj = GameObject.Find(".central");
+        if (tween == null) {
 				tween = gameObject.GetComponent<TweenPosition> ();
 				tween.from = new Vector3 (transform.position.x, tween.from.y, tween.from.z);
 				tween.to = new Vector3 (transform.position.x, tween.to.y, tween.to.z);

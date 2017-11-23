@@ -58,7 +58,7 @@ public class itemPeluqueria : MonoBehaviour {
 		
 		//loc = Localization.instance;
 
-		GameObject cam = GameObject.FindWithTag("MainCamera");
+		GameObject cam = GameObject.Find("Main Camera");
 		mapaScript = cam.GetComponent<progresionMapa>();
 		setEstado(PlayerPrefs.GetInt("estadoPeluqueria" + id, -1));
 		actualizarIndicadores();
@@ -154,8 +154,8 @@ public class itemPeluqueria : MonoBehaviour {
 	
 	void verDetalles(){
 		if(id == 1 ){
-		   GameObject t = GameObject.FindWithTag("tutorial");
-		   if(t != null){ print("enviado"); t.SendMessage("evento", 1, SendMessageOptions.RequireReceiver);}
+		   GameObject t = GameObject.Find("UI Root (2D) Tutorial");
+            if (t != null){ print("enviado"); t.SendMessage("evento", 1, SendMessageOptions.RequireReceiver);}
 		}
 		if (PlayerPrefs.GetInt ("enChallenge", 0) == 1)
 			return;
@@ -214,8 +214,8 @@ public class itemPeluqueria : MonoBehaviour {
 	
 	void challenge(){
 		if(id == 1 ){
-			GameObject t = GameObject.FindWithTag("tutorial");
-			if(t != null){ print("enviado"); t.SendMessage("evento", 3, SendMessageOptions.RequireReceiver);}
+			GameObject t = GameObject.Find("UI Root (2D) Tutorial");
+            if (t != null){ print("enviado"); t.SendMessage("evento", 3, SendMessageOptions.RequireReceiver);}
 		}
 		print ("en challenge "+PlayerPrefs.GetInt ("enChallenge", 0)+" id: "+PlayerPrefs.GetInt("challengeId"));
 		if(PlayerPrefs.GetInt("enChallenge", 0) == 0){

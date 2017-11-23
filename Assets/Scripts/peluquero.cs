@@ -31,8 +31,8 @@ public class peluquero : MonoBehaviour {
 	//bool activo = false;
 	
 	void Start(){
-		centralObj = GameObject.FindWithTag("central");
-		vidas = PlayerPrefs.GetInt("vidas", 0);
+		centralObj = GameObject.Find(".central");
+        vidas = PlayerPrefs.GetInt("vidas", 0);
 		
 		componer();
 	}

@@ -17,11 +17,11 @@ public class tilt : MonoBehaviour {
 	float angMenorAlcanzado = 0f;
 	float angMayorAlcanzado = 0f;
 
-    void Awake()
+    void Start()
     {
         if (useFullAngles)
         {
-            centralObj = GameObject.FindGameObjectWithTag("central");
+            centralObj = GameObject.Find(".central");
             centralScript = centralObj.GetComponent<central>();
         }
     
@@ -62,11 +62,6 @@ public class tilt : MonoBehaviour {
 	}
 	
 	void cortarPeloTilt(){
-        if (centralObj == null || centralScript == null)
-        {
-            centralObj = GameObject.FindGameObjectWithTag("central");
-            centralScript = centralObj.GetComponent<central>();
-        }
         centralScript.cortarPelo(pos);
         //centralObj.SendMessage("cortarPelo", pos);	
 	}
