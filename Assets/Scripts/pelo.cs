@@ -166,7 +166,7 @@ public class pelo : MonoBehaviour {
 		}
 		if(callback && cortado) centralObj.SendMessage("peloCortado", new Vector3(cantidadCortes, expPorSegmento, peloCompleto?1:0));
 		peloCompleto = false;
-		transform.root.gameObject.SendMessage("checkPelos");
+		transform.root.gameObject.SendMessage("checkPelos", SendMessageOptions.DontRequireReceiver);
 	}
 	
 	public void velocidadCrecimiento(int porcentage){

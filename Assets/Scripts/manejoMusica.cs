@@ -7,7 +7,7 @@ public class manejoMusica : MonoBehaviour {
 	public string[] nivelEliminar;
 	// Use this for initialization
 	void Start () {
-		Object[] m = GameObject.FindObjectsOfType(typeof(manejoMusica));
+        Object[] m = GameObject.FindObjectsOfType(typeof(manejoMusica));
 		if(m.Length > 1) Destroy(gameObject);
 		GetComponent<AudioSource>().clip = musica;
 		GetComponent<AudioSource>().loop = true;
@@ -17,7 +17,8 @@ public class manejoMusica : MonoBehaviour {
 		DontDestroyOnLoad(gameObject);
 	}
 
-	void Awake(){
+
+    void Awake(){
 	}
 
 	void OnLevelWasLoaded(int level){

@@ -16,8 +16,8 @@ public class setPeluqueria : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//miBaseDatos = gameObject.GetComponent<baseDatos>();
-		crearPeluqueriaPropia(true);
+        //miBaseDatos = gameObject.GetComponent<baseDatos>();
+        crearPeluqueriaPropia(true);
 	}
 
 	void crearPeluqueriaPropia(bool actualizarBD){
