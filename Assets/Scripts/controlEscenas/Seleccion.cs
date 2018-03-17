@@ -76,8 +76,11 @@ public class Seleccion : MonoBehaviour {
 	void peluqueroSeleccionado(){
 		//Playtomic.Log.CustomMetric("peluquero"+retratoSeleccionado+"Sel", "Boton");
 		PlayerPrefs.SetInt("peluqueroSeleccionado", retratoSeleccionado);
-		Application.LoadLevel("SeleccionMundo");	
-	}
+        //Application.LoadLevel("SeleccionMundo");	
+
+        PlayerPrefs.SetString("escenaCargar", "Mapa");
+        Application.LoadLevel("Loading");
+    }
 	
 	// Update is called once per frame
 	void Update () {

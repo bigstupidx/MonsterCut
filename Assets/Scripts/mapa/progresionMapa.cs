@@ -150,7 +150,7 @@ public class progresionMapa : MonoBehaviour {
 			objetoEscalarRestriccion[i].localScale = Vector3.one * Mathf.Clamp(camaraObj.orthographicSize * 0.7f, 1f, 3f);	
 		}
 		if (Input.GetKey (KeyCode.Escape)) {
-			Application.LoadLevel("SeleccionMundo");
+			Application.LoadLevel("Seleccion");
 		}
 	}
 
