@@ -52,19 +52,19 @@ public class panelWinMapa : MonoBehaviour {
 	IEnumerator fuegosArtificiales(){
 		yield return new WaitForSeconds (0.4f);
 		GameObject g = (GameObject)Instantiate (explosionPrefab);
-		g.transform.FindChild ("Particle System").localPosition = new Vector3 (300f, -300f, 1495f);
+		g.transform.Find ("Particle System").localPosition = new Vector3 (300f, -300f, 1495f);
 
 		g.transform.parent = transform.parent;
 		g.transform.localScale = Vector3.one;
 		yield return new WaitForSeconds (0.4f);
 		g = (GameObject)Instantiate (explosionPrefab);
-		g.transform.FindChild ("Particle System").localPosition = new Vector3 (-300f, -300f, 1495f);
+		g.transform.Find ("Particle System").localPosition = new Vector3 (-300f, -300f, 1495f);
 
 		g.transform.parent = transform.parent;
 		g.transform.localScale = Vector3.one;
 		yield return new WaitForSeconds (0.4f);
 		g = (GameObject)Instantiate (explosionPrefab);
-		g.transform.FindChild ("Particle System").localPosition = new Vector3 (0f, 300f, 1495f);
+		g.transform.Find ("Particle System").localPosition = new Vector3 (0f, 300f, 1495f);
 
 		g.transform.parent = transform.parent;
 		g.transform.localScale = Vector3.one;

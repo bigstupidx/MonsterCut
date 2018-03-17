@@ -122,7 +122,7 @@ public class pelo : MonoBehaviour {
 				Instantiate(moneda, new Vector3(animacion.mBoneTransforms[seccionActual + 1].position.x, animacion.mBoneTransforms[seccionActual + 1].position.y, -30f), moneda.rotation);
 				seccionesOro[seccionActual + 1] = 0;
 				Transform t = animacion.GetBoneTransform("Bone " + (seccionActual + 1));
-				if(t != null) Destroy(t.FindChild("brilloOro(Clone)").gameObject);
+				if(t != null) Destroy(t.Find("brilloOro(Clone)").gameObject);
 				#if UNITY_IPHONE
 				//FlurryAnalytics.logEvent("monedaGanada", false );
 				#endif		
