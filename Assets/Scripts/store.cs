@@ -47,7 +47,7 @@ public class store : MonoBehaviour {
 		//scrollPeluqueros.GetComponent<UIScrollBar> ().barSize = 0.86f;
 		#if UNITY_IPHONE
 		//la version de android se hace en la clase directamente
-		IAPNemorisStore.cargarProductos();
+		//IAPNemorisStore.cargarProductos();
 		#endif		
 
 	}
